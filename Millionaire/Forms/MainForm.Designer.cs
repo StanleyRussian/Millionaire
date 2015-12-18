@@ -31,16 +31,16 @@
             this.buttonNew = new System.Windows.Forms.Button();
             this.buttonTakeMoney = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.buttonFiftyFifty = new System.Windows.Forms.Button();
-            this.buttonFriendCall = new System.Windows.Forms.Button();
-            this.buttonAudienceHelp = new System.Windows.Forms.Button();
             this.listboxMoney = new System.Windows.Forms.ListBox();
+            this.buttonAudienceHelp = new System.Windows.Forms.Button();
+            this.buttonFriendCall = new System.Windows.Forms.Button();
+            this.buttonFiftyFifty = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textboxQuestion = new System.Windows.Forms.TextBox();
-            this.buttonAnswer1 = new System.Windows.Forms.Button();
-            this.buttonAnswer2 = new System.Windows.Forms.Button();
-            this.buttonAnswer3 = new System.Windows.Forms.Button();
             this.buttonAnswer4 = new System.Windows.Forms.Button();
+            this.buttonAnswer3 = new System.Windows.Forms.Button();
+            this.buttonAnswer2 = new System.Windows.Forms.Button();
+            this.buttonAnswer1 = new System.Windows.Forms.Button();
+            this.textboxQuestion = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItemAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,6 +57,7 @@
             this.buttonNew.TabIndex = 0;
             this.buttonNew.Text = "Новая игра";
             this.buttonNew.UseVisualStyleBackColor = true;
+            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
             // buttonTakeMoney
             // 
@@ -66,6 +67,7 @@
             this.buttonTakeMoney.TabIndex = 1;
             this.buttonTakeMoney.Text = "Забрать деньги";
             this.buttonTakeMoney.UseVisualStyleBackColor = true;
+            this.buttonTakeMoney.Click += new System.EventHandler(this.buttonTakeMoney_Click);
             // 
             // groupBox1
             // 
@@ -80,25 +82,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // buttonFiftyFifty
+            // listboxMoney
             // 
-            this.buttonFiftyFifty.Location = new System.Drawing.Point(6, 16);
-            this.buttonFiftyFifty.Name = "buttonFiftyFifty";
-            this.buttonFiftyFifty.Size = new System.Drawing.Size(86, 52);
-            this.buttonFiftyFifty.TabIndex = 0;
-            this.buttonFiftyFifty.Text = "50:50";
-            this.buttonFiftyFifty.UseVisualStyleBackColor = true;
-            this.buttonFiftyFifty.Click += new System.EventHandler(this.buttonFiftyFifty_Click);
-            // 
-            // buttonFriendCall
-            // 
-            this.buttonFriendCall.Location = new System.Drawing.Point(98, 16);
-            this.buttonFriendCall.Name = "buttonFriendCall";
-            this.buttonFriendCall.Size = new System.Drawing.Size(86, 52);
-            this.buttonFriendCall.TabIndex = 1;
-            this.buttonFriendCall.Text = "Звонок другу";
-            this.buttonFriendCall.UseVisualStyleBackColor = true;
-            this.buttonFriendCall.Click += new System.EventHandler(this.buttonFriendCall_Click);
+            this.listboxMoney.FormattingEnabled = true;
+            this.listboxMoney.Location = new System.Drawing.Point(6, 76);
+            this.listboxMoney.Name = "listboxMoney";
+            this.listboxMoney.Size = new System.Drawing.Size(270, 264);
+            this.listboxMoney.TabIndex = 3;
             // 
             // buttonAudienceHelp
             // 
@@ -110,13 +100,25 @@
             this.buttonAudienceHelp.UseVisualStyleBackColor = true;
             this.buttonAudienceHelp.Click += new System.EventHandler(this.buttonAudienceHelp_Click);
             // 
-            // listboxMoney
+            // buttonFriendCall
             // 
-            this.listboxMoney.FormattingEnabled = true;
-            this.listboxMoney.Location = new System.Drawing.Point(6, 76);
-            this.listboxMoney.Name = "listboxMoney";
-            this.listboxMoney.Size = new System.Drawing.Size(270, 264);
-            this.listboxMoney.TabIndex = 3;
+            this.buttonFriendCall.Location = new System.Drawing.Point(98, 16);
+            this.buttonFriendCall.Name = "buttonFriendCall";
+            this.buttonFriendCall.Size = new System.Drawing.Size(86, 52);
+            this.buttonFriendCall.TabIndex = 1;
+            this.buttonFriendCall.Text = "Звонок другу";
+            this.buttonFriendCall.UseVisualStyleBackColor = true;
+            this.buttonFriendCall.Click += new System.EventHandler(this.buttonFriendCall_Click);
+            // 
+            // buttonFiftyFifty
+            // 
+            this.buttonFiftyFifty.Location = new System.Drawing.Point(6, 16);
+            this.buttonFiftyFifty.Name = "buttonFiftyFifty";
+            this.buttonFiftyFifty.Size = new System.Drawing.Size(86, 52);
+            this.buttonFiftyFifty.TabIndex = 0;
+            this.buttonFiftyFifty.Text = "50:50";
+            this.buttonFiftyFifty.UseVisualStyleBackColor = true;
+            this.buttonFiftyFifty.Click += new System.EventHandler(this.buttonFiftyFifty_Click);
             // 
             // groupBox3
             // 
@@ -132,24 +134,25 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Вопрос";
             // 
-            // textboxQuestion
+            // buttonAnswer4
             // 
-            this.textboxQuestion.Location = new System.Drawing.Point(6, 19);
-            this.textboxQuestion.Multiline = true;
-            this.textboxQuestion.Name = "textboxQuestion";
-            this.textboxQuestion.ReadOnly = true;
-            this.textboxQuestion.Size = new System.Drawing.Size(292, 49);
-            this.textboxQuestion.TabIndex = 0;
+            this.buttonAnswer4.Location = new System.Drawing.Point(6, 217);
+            this.buttonAnswer4.Name = "buttonAnswer4";
+            this.buttonAnswer4.Size = new System.Drawing.Size(292, 41);
+            this.buttonAnswer4.TabIndex = 4;
+            this.buttonAnswer4.Text = "buttonAnswer4";
+            this.buttonAnswer4.UseVisualStyleBackColor = true;
+            this.buttonAnswer4.Click += new System.EventHandler(this.buttonAnswer4_Click);
             // 
-            // buttonAnswer1
+            // buttonAnswer3
             // 
-            this.buttonAnswer1.Location = new System.Drawing.Point(6, 76);
-            this.buttonAnswer1.Name = "buttonAnswer1";
-            this.buttonAnswer1.Size = new System.Drawing.Size(292, 41);
-            this.buttonAnswer1.TabIndex = 1;
-            this.buttonAnswer1.Text = "button7";
-            this.buttonAnswer1.UseVisualStyleBackColor = true;
-            this.buttonAnswer1.Click += new System.EventHandler(this.buttonAnswer1_Click);
+            this.buttonAnswer3.Location = new System.Drawing.Point(6, 170);
+            this.buttonAnswer3.Name = "buttonAnswer3";
+            this.buttonAnswer3.Size = new System.Drawing.Size(292, 41);
+            this.buttonAnswer3.TabIndex = 3;
+            this.buttonAnswer3.Text = "buttonAnswer3";
+            this.buttonAnswer3.UseVisualStyleBackColor = true;
+            this.buttonAnswer3.Click += new System.EventHandler(this.buttonAnswer3_Click);
             // 
             // buttonAnswer2
             // 
@@ -161,25 +164,24 @@
             this.buttonAnswer2.UseVisualStyleBackColor = true;
             this.buttonAnswer2.Click += new System.EventHandler(this.buttonAnswer2_Click);
             // 
-            // buttonAnswer3
+            // buttonAnswer1
             // 
-            this.buttonAnswer3.Location = new System.Drawing.Point(6, 170);
-            this.buttonAnswer3.Name = "buttonAnswer3";
-            this.buttonAnswer3.Size = new System.Drawing.Size(292, 41);
-            this.buttonAnswer3.TabIndex = 3;
-            this.buttonAnswer3.Text = "button9";
-            this.buttonAnswer3.UseVisualStyleBackColor = true;
-            this.buttonAnswer3.Click += new System.EventHandler(this.buttonAnswer3_Click);
+            this.buttonAnswer1.Location = new System.Drawing.Point(6, 76);
+            this.buttonAnswer1.Name = "buttonAnswer1";
+            this.buttonAnswer1.Size = new System.Drawing.Size(292, 41);
+            this.buttonAnswer1.TabIndex = 1;
+            this.buttonAnswer1.Text = "buttonAnswer1";
+            this.buttonAnswer1.UseVisualStyleBackColor = true;
+            this.buttonAnswer1.Click += new System.EventHandler(this.buttonAnswer1_Click);
             // 
-            // buttonAnswer4
+            // textboxQuestion
             // 
-            this.buttonAnswer4.Location = new System.Drawing.Point(6, 217);
-            this.buttonAnswer4.Name = "buttonAnswer4";
-            this.buttonAnswer4.Size = new System.Drawing.Size(292, 41);
-            this.buttonAnswer4.TabIndex = 4;
-            this.buttonAnswer4.Text = "button10";
-            this.buttonAnswer4.UseVisualStyleBackColor = true;
-            this.buttonAnswer4.Click += new System.EventHandler(this.buttonAnswer4_Click);
+            this.textboxQuestion.Location = new System.Drawing.Point(6, 19);
+            this.textboxQuestion.Multiline = true;
+            this.textboxQuestion.Name = "textboxQuestion";
+            this.textboxQuestion.ReadOnly = true;
+            this.textboxQuestion.Size = new System.Drawing.Size(292, 49);
+            this.textboxQuestion.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -203,7 +205,7 @@
             // ToolStripMenuItemSettings
             // 
             this.ToolStripMenuItemSettings.Name = "ToolStripMenuItemSettings";
-            this.ToolStripMenuItemSettings.Size = new System.Drawing.Size(152, 22);
+            this.ToolStripMenuItemSettings.Size = new System.Drawing.Size(134, 22);
             this.ToolStripMenuItemSettings.Text = "Настройки";
             this.ToolStripMenuItemSettings.Click += new System.EventHandler(this.ToolStripMenuItemSettings_Click);
             // 
