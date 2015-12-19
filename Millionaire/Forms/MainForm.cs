@@ -14,7 +14,7 @@ namespace Millionaire
             _control.AnswersChanged += _control_AnswersChanged;
         }
 
-        private void _control_AnswersChanged(System.Collections.Generic.List<string> Answers)
+        private void _control_AnswersChanged(string[] Answers)
         {
             //Yes, it definitely can see some improvement, i know
             buttonAnswer1.Text = Answers[0];
@@ -76,6 +76,11 @@ namespace Millionaire
         private void buttonTakeMoney_Click(object sender, EventArgs e)
         {
             _control.PlayerExit();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _control.Die();
         }
     }
 }

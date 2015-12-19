@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text;
 
 namespace Millionaire
 {
@@ -13,7 +15,7 @@ namespace Millionaire
             private set;
         }
 
-        public List<string> Answers
+        public string[] Answers
         {
             get;
             private set;
@@ -22,32 +24,25 @@ namespace Millionaire
         public Model()
         {
             QuestionList = new List<Question>();
-            Answers = new List<string>();
-            //Answers.Capacity = 4;
+            Answers = new string[4];
+
+            if (File.Exists("LastQuestions.txt"))
+                Import("LastQuestions.txt");
         }
 
         public void Advance()
         {
             CurrentQuestion++;
             Random rnd = new Random();
-            Answers.Clear();
+            Answers = new string[4];
 
             foreach (string a in QuestionList[CurrentQuestion].Answers)
             {
                 int tick = rnd.Next(0, 4);
-                if (Answers.)
-                    Answers.Insert(tick, a);
+                while (Answers[tick] != null)
+                    tick = rnd.Next(0, 4);
+                Answers[tick] = a;
             }
-
-                //foreach (string a in QuestionList[CurrentQuestion].Answers)
-                //{
-                //    while (Answers.Count != 4)
-                //    {
-                //        int tick = rnd.Next(0, 4);
-                //        //if (Answers[tick] == null)
-                //        //    Answers[tick] = a;
-                //    }
-                //}
 
             QuestionChanged(QuestionList[CurrentQuestion].QuestionText);
             AnswersChanged(Answers);
@@ -55,24 +50,7 @@ namespace Millionaire
 
         public void FiftyFifty()
         {
-            //Random rnd = new Random();
-            //Answers.Clear();
 
-            //foreach (string a in QuestionList[CurrentQuestion].Answers)
-            //{
-            //    //Only thing changed here from Advance() code is number in Answers.Count check
-            //    //Idea: you clear answers, add two first again (with first being the right one) and push it.
-            //    while (Answers.Count != 2)
-            //    {
-            //        int tick = rnd.Next(0, 4);
-            //        if (Answers[tick] == null)
-            //            Answers[tick] = a;
-            //    }
-            //}
-            //Answers.Add(" ");
-            //Answers.Add(" ");
-
-            //AnswersChanged(Answers);
         }
 
         public void NewGame()
@@ -84,6 +62,56 @@ namespace Millionaire
         public void AddQuestion(Question q)
         {
             QuestionList.Add(q);
+        }
+
+        public void Die()
+        {
+            ExportTxt();
+        }
+
+        public void Import(string path)
+        {
+            string ext = Path.GetExtension(path);
+            if (ext == ".txt")
+            {
+                string question = null;
+                //Problem with encoding may be present
+                using (StreamReader sr = new StreamReader(path, Encoding.UTF8, true))
+                {
+                    while ((question = sr.ReadLine()) != null)
+                    {
+                        string answerR = sr.ReadLine();
+                        string answer1 = sr.ReadLine();
+                        string answer2 = sr.ReadLine();
+                        string answer3 = sr.ReadLine();
+                        Question NewQ = new Question(question, answerR, answer1, answer2, answer3);
+                        AddQuestion(NewQ);
+                    }
+                }
+            }
+            else if (ext == ".xml")
+            {
+
+            }
+        }
+
+        public void ExportTxt()
+        {
+            //FileStream f = new FileStream("LastQuestions.txt", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
+            using (FileStream f = File.Create("LastQuestions.txt"))
+            {
+                using (StreamWriter sw = new StreamWriter(f))
+                {
+                    foreach (Question q in QuestionList)
+                    {
+                        sw.WriteLine(q.QuestionText);
+                        foreach (string s in q.Answers)
+                        {
+                            sw.WriteLine(s);
+                        }
+                    }
+                }
+            }
         }
 
         public event QuestionDlgt QuestionChanged;

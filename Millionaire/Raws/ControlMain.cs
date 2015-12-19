@@ -22,9 +22,9 @@ namespace Millionaire
             _model.AnswersChanged += _model_AnswersChanged;
         }
 
-        private void _model_AnswersChanged(List<string> Answers)
+        private void _model_AnswersChanged(string[] Answers)
         {
-            throw new NotImplementedException();
+            AnswersChanged(Answers);
         }
 
         private void _model_QuestionChanged(string question)
@@ -66,6 +66,11 @@ namespace Millionaire
         {
             AdminForm adform = new AdminForm(_model);
             adform.ShowDialog();
+        }
+
+        public void Die()
+        {
+            _model.Die();
         }
     }
 }

@@ -25,26 +25,7 @@ namespace Millionaire
 
         public void Import(string path)
         {
-            string ext = Path.GetExtension(path);
-            if (ext == ".txt")
-            {
-                string question = null;
-                //Problem with encoding may be present
-                StreamReader sr = new StreamReader(path, true);
-                while ((question = sr.ReadLine()) != null) 
-                {
-                    string answerR = sr.ReadLine();
-                    string answer1 = sr.ReadLine();
-                    string answer2 = sr.ReadLine();
-                    string answer3 = sr.ReadLine();
-                    Question NewQ = new Question(question, answerR, answer1, answer2, answer3);
-                    _model.AddQuestion(NewQ);
-                }
-            }
-            else if (ext == ".xml")
-            {
-                
-            }
+            _model.Import(path);
         }
 
         public string OpenBrowseDialog()

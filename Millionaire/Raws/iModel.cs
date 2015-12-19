@@ -11,21 +11,23 @@ namespace Millionaire
         //int CurrentQuestion
         //{ get; }
 
-        List<string> Answers
+        string[] Answers
         { get; }
 
         void NewGame();
         void Advance();
         void FiftyFifty();
-        //Other cheats don't go into model methods since they don't change it.
+        void Die();
 
-        //Functions for managing form
+        //Functions for managing
         void AddQuestion(Question q);
+        void Import(string path);
+        void ExportTxt();
 
         event QuestionDlgt QuestionChanged;
         event StringsDlgt AnswersChanged;
     }
 
     public delegate void QuestionDlgt(string question);
-    public delegate void StringsDlgt(List<string> Answers);
+    public delegate void StringsDlgt(string[] Answers);
 }

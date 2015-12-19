@@ -19,5 +19,7 @@ namespace Millionaire
         void FriendCall();
 
         void CreateAdminForm();
+
+        void Die();
     }
 }
