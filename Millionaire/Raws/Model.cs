@@ -19,21 +19,35 @@ namespace Millionaire
             private set;
         }
 
+        public Model()
+        {
+            QuestionList = new List<Question>();
+            Answers = new List<string>();
+            //Answers.Capacity = 4;
+        }
+
         public void Advance()
         {
             CurrentQuestion++;
             Random rnd = new Random();
             Answers.Clear();
-            
+
             foreach (string a in QuestionList[CurrentQuestion].Answers)
             {
-                while (Answers.Count != 4)
-                {
-                    int tick = rnd.Next(0, 4);
-                    if (Answers[tick] == null)
-                        Answers[tick] = a;
-                }
+                int tick = rnd.Next(0, 4);
+                if (Answers.)
+                    Answers.Insert(tick, a);
             }
+
+                //foreach (string a in QuestionList[CurrentQuestion].Answers)
+                //{
+                //    while (Answers.Count != 4)
+                //    {
+                //        int tick = rnd.Next(0, 4);
+                //        //if (Answers[tick] == null)
+                //        //    Answers[tick] = a;
+                //    }
+                //}
 
             QuestionChanged(QuestionList[CurrentQuestion].QuestionText);
             AnswersChanged(Answers);
@@ -41,29 +55,30 @@ namespace Millionaire
 
         public void FiftyFifty()
         {
-            Random rnd = new Random();
-            Answers.Clear();
+            //Random rnd = new Random();
+            //Answers.Clear();
 
-            foreach (string a in QuestionList[CurrentQuestion].Answers)
-            {
-                //Only thing changed here from Advance() code is number in Answers.Count check
-                //Idea: you clear answers, add two first again (with first being the right one) and push it.
-                while (Answers.Count != 2)
-                {
-                    int tick = rnd.Next(0, 4);
-                    if (Answers[tick] == null)
-                        Answers[tick] = a;
-                }
-            }
-            Answers.Add(" ");
-            Answers.Add(" ");
+            //foreach (string a in QuestionList[CurrentQuestion].Answers)
+            //{
+            //    //Only thing changed here from Advance() code is number in Answers.Count check
+            //    //Idea: you clear answers, add two first again (with first being the right one) and push it.
+            //    while (Answers.Count != 2)
+            //    {
+            //        int tick = rnd.Next(0, 4);
+            //        if (Answers[tick] == null)
+            //            Answers[tick] = a;
+            //    }
+            //}
+            //Answers.Add(" ");
+            //Answers.Add(" ");
 
-            AnswersChanged(Answers);
+            //AnswersChanged(Answers);
         }
 
         public void NewGame()
         {
-            CurrentQuestion = 0;
+            CurrentQuestion = -1;
+            Advance();
         }
 
         public void AddQuestion(Question q)

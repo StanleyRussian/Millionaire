@@ -17,5 +17,7 @@ namespace Millionaire
         void AudienceHelp();
         void FiftyFifty();
         void FriendCall();
+
+        void CreateAdminForm();
     }
 }

@@ -5,10 +5,11 @@ namespace Millionaire
 {
     public partial class AdminForm : Form
     {
-        iControlManage _control = new ControlManage();
+        iControlManage _control;
 
-        public AdminForm()
+        public AdminForm(iModel model)
         {
+            _control = new ControlManage(model);
             InitializeComponent();
         }
 
@@ -29,12 +30,12 @@ namespace Millionaire
 
         private void buttonImportGo_Click(object sender, EventArgs e)
         {
-
+            _control.Import(textBoxImport.Text);
         }
 
         private void buttonImportBrowse_Click(object sender, EventArgs e)
         {
-
+            textBoxImport.Text = _control.OpenBrowseDialog();
         }
 
         private void buttonExportBrowse_Click(object sender, EventArgs e)

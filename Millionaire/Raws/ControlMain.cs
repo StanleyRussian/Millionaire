@@ -61,5 +61,11 @@ namespace Millionaire
         {
             throw new NotImplementedException();
         }
+
+        public void CreateAdminForm()
+        {
+            AdminForm adform = new AdminForm(_model);
+            adform.ShowDialog();
+        }
     }
 }

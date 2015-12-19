@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Millionaire
 {
-    interface iModel
+    public interface iModel
     {
         List<Question> QuestionList
         { get; }

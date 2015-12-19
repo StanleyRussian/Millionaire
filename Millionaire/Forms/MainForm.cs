@@ -63,14 +63,9 @@ namespace Millionaire
             _control.AnswerButton(4);
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void ToolStripMenuItemSettings_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _control.CreateAdminForm();
         }
 
         private void buttonNew_Click(object sender, EventArgs e)
