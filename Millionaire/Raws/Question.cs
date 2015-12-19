@@ -1,16 +1,29 @@
-﻿namespace Millionaire
+﻿using System.Collections.Generic;
+
+namespace Millionaire
 {
-    class Question
+    public class Question
     {
-        string QuestionText;
-        string[] Answers;
+        public string QuestionText
+        {
+            get;
+            private set;
+        }
+        public List<string> Answers
+        {
+            get;
+            private set;
+        }
 
         public Question (
             string argName,
-            string[] argAnswers)
+            string ar, string a1, string a2, string a3)
         {
             QuestionText = argName;
-            Answers = argAnswers;
+            Answers.Add(ar);
+            Answers.Add(a1);
+            Answers.Add(a2);
+            Answers.Add(a3);
         }
     }
 }

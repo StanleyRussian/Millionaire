@@ -30,46 +30,46 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabpageAdd = new System.Windows.Forms.TabPage();
-            this.tabpageDelete = new System.Windows.Forms.TabPage();
-            this.tabpageEdit = new System.Windows.Forms.TabPage();
-            this.textboxNewQuestion = new System.Windows.Forms.TextBox();
-            this.textboxAnswer_Right = new System.Windows.Forms.TextBox();
-            this.textboxAnswer_1 = new System.Windows.Forms.TextBox();
-            this.textboxAnswer_2 = new System.Windows.Forms.TextBox();
-            this.textboxAnswer_3 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboboxDeleteQuestion = new System.Windows.Forms.ComboBox();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxNewAnswer3 = new System.Windows.Forms.TextBox();
+            this.textBoxNewAnswer2 = new System.Windows.Forms.TextBox();
+            this.textBoxNewAnswer1 = new System.Windows.Forms.TextBox();
+            this.textBoxNewAnswerRight = new System.Windows.Forms.TextBox();
+            this.textboxNewQuestion = new System.Windows.Forms.TextBox();
+            this.tabpageDelete = new System.Windows.Forms.TabPage();
             this.buttonDelete = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBoxEdit = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboboxDeleteQuestion = new System.Windows.Forms.ComboBox();
+            this.tabpageEdit = new System.Windows.Forms.TabPage();
+            this.buttonEdit = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxEditAnswer3 = new System.Windows.Forms.TextBox();
             this.textBoxEditAnswer2 = new System.Windows.Forms.TextBox();
             this.textBoxEditAnswer1 = new System.Windows.Forms.TextBox();
             this.textBoxEditAnswerRight = new System.Windows.Forms.TextBox();
-            this.buttonEdit = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxEdit = new System.Windows.Forms.ComboBox();
             this.tabpageImportExport = new System.Windows.Forms.TabPage();
-            this.textBoxImport = new System.Windows.Forms.TextBox();
-            this.buttonImportBrowse = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.buttonExportXML = new System.Windows.Forms.Button();
+            this.buttonExportTXT = new System.Windows.Forms.Button();
+            this.buttonExportBrowse = new System.Windows.Forms.Button();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonImportGo = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.buttonExportBrowse = new System.Windows.Forms.Button();
-            this.buttonExportTXT = new System.Windows.Forms.Button();
-            this.buttonExportXML = new System.Windows.Forms.Button();
+            this.buttonImportBrowse = new System.Windows.Forms.Button();
+            this.textBoxImport = new System.Windows.Forms.TextBox();
             this.tabControl.SuspendLayout();
             this.tabpageAdd.SuspendLayout();
             this.tabpageDelete.SuspendLayout();
             this.tabpageEdit.SuspendLayout();
             this.tabpageImportExport.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -92,10 +92,10 @@
             this.tabpageAdd.Controls.Add(this.label3);
             this.tabpageAdd.Controls.Add(this.label2);
             this.tabpageAdd.Controls.Add(this.label1);
-            this.tabpageAdd.Controls.Add(this.textboxAnswer_3);
-            this.tabpageAdd.Controls.Add(this.textboxAnswer_2);
-            this.tabpageAdd.Controls.Add(this.textboxAnswer_1);
-            this.tabpageAdd.Controls.Add(this.textboxAnswer_Right);
+            this.tabpageAdd.Controls.Add(this.textBoxNewAnswer3);
+            this.tabpageAdd.Controls.Add(this.textBoxNewAnswer2);
+            this.tabpageAdd.Controls.Add(this.textBoxNewAnswer1);
+            this.tabpageAdd.Controls.Add(this.textBoxNewAnswerRight);
             this.tabpageAdd.Controls.Add(this.textboxNewQuestion);
             this.tabpageAdd.Location = new System.Drawing.Point(4, 40);
             this.tabpageAdd.Name = "tabpageAdd";
@@ -104,6 +104,78 @@
             this.tabpageAdd.TabIndex = 0;
             this.tabpageAdd.Text = "Добавление вопроса";
             this.tabpageAdd.UseVisualStyleBackColor = true;
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(269, 182);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(98, 23);
+            this.buttonAdd.TabIndex = 8;
+            this.buttonAdd.Text = "Добавить";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(202, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Введите остальные варианты ответов";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(145, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Введите правильный ответ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Введите новый вопрос";
+            // 
+            // textBoxNewAnswer3
+            // 
+            this.textBoxNewAnswer3.Location = new System.Drawing.Point(9, 149);
+            this.textBoxNewAnswer3.Name = "textBoxNewAnswer3";
+            this.textBoxNewAnswer3.Size = new System.Drawing.Size(355, 20);
+            this.textBoxNewAnswer3.TabIndex = 4;
+            // 
+            // textBoxNewAnswer2
+            // 
+            this.textBoxNewAnswer2.Location = new System.Drawing.Point(9, 123);
+            this.textBoxNewAnswer2.Name = "textBoxNewAnswer2";
+            this.textBoxNewAnswer2.Size = new System.Drawing.Size(355, 20);
+            this.textBoxNewAnswer2.TabIndex = 3;
+            // 
+            // textBoxNewAnswer1
+            // 
+            this.textBoxNewAnswer1.Location = new System.Drawing.Point(9, 97);
+            this.textBoxNewAnswer1.Name = "textBoxNewAnswer1";
+            this.textBoxNewAnswer1.Size = new System.Drawing.Size(355, 20);
+            this.textBoxNewAnswer1.TabIndex = 2;
+            // 
+            // textBoxNewAnswerRight
+            // 
+            this.textBoxNewAnswerRight.Location = new System.Drawing.Point(9, 58);
+            this.textBoxNewAnswerRight.Name = "textBoxNewAnswerRight";
+            this.textBoxNewAnswerRight.Size = new System.Drawing.Size(355, 20);
+            this.textBoxNewAnswerRight.TabIndex = 1;
+            // 
+            // textboxNewQuestion
+            // 
+            this.textboxNewQuestion.Location = new System.Drawing.Point(9, 19);
+            this.textboxNewQuestion.Name = "textboxNewQuestion";
+            this.textboxNewQuestion.Size = new System.Drawing.Size(355, 20);
+            this.textboxNewQuestion.TabIndex = 0;
             // 
             // tabpageDelete
             // 
@@ -117,6 +189,33 @@
             this.tabpageDelete.TabIndex = 1;
             this.tabpageDelete.Text = "Удаление вопроса";
             this.tabpageDelete.UseVisualStyleBackColor = true;
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Location = new System.Drawing.Point(269, 182);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(98, 23);
+            this.buttonDelete.TabIndex = 2;
+            this.buttonDelete.Text = "Удалить";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Выберите вопрос";
+            // 
+            // comboboxDeleteQuestion
+            // 
+            this.comboboxDeleteQuestion.FormattingEnabled = true;
+            this.comboboxDeleteQuestion.Location = new System.Drawing.Point(9, 19);
+            this.comboboxDeleteQuestion.Name = "comboboxDeleteQuestion";
+            this.comboboxDeleteQuestion.Size = new System.Drawing.Size(358, 21);
+            this.comboboxDeleteQuestion.TabIndex = 0;
             // 
             // tabpageEdit
             // 
@@ -137,121 +236,15 @@
             this.tabpageEdit.Text = "Редактирование вопроса";
             this.tabpageEdit.UseVisualStyleBackColor = true;
             // 
-            // textboxNewQuestion
+            // buttonEdit
             // 
-            this.textboxNewQuestion.Location = new System.Drawing.Point(9, 19);
-            this.textboxNewQuestion.Name = "textboxNewQuestion";
-            this.textboxNewQuestion.Size = new System.Drawing.Size(355, 20);
-            this.textboxNewQuestion.TabIndex = 0;
-            // 
-            // textboxAnswer_Right
-            // 
-            this.textboxAnswer_Right.Location = new System.Drawing.Point(9, 58);
-            this.textboxAnswer_Right.Name = "textboxAnswer_Right";
-            this.textboxAnswer_Right.Size = new System.Drawing.Size(355, 20);
-            this.textboxAnswer_Right.TabIndex = 1;
-            // 
-            // textboxAnswer_1
-            // 
-            this.textboxAnswer_1.Location = new System.Drawing.Point(9, 97);
-            this.textboxAnswer_1.Name = "textboxAnswer_1";
-            this.textboxAnswer_1.Size = new System.Drawing.Size(355, 20);
-            this.textboxAnswer_1.TabIndex = 2;
-            // 
-            // textboxAnswer_2
-            // 
-            this.textboxAnswer_2.Location = new System.Drawing.Point(9, 123);
-            this.textboxAnswer_2.Name = "textboxAnswer_2";
-            this.textboxAnswer_2.Size = new System.Drawing.Size(355, 20);
-            this.textboxAnswer_2.TabIndex = 3;
-            // 
-            // textboxAnswer_3
-            // 
-            this.textboxAnswer_3.Location = new System.Drawing.Point(9, 149);
-            this.textboxAnswer_3.Name = "textboxAnswer_3";
-            this.textboxAnswer_3.Size = new System.Drawing.Size(355, 20);
-            this.textboxAnswer_3.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Введите новый вопрос";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(145, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Введите правильный ответ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 81);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(202, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Введите остальные варианты ответов";
-            // 
-            // comboboxDeleteQuestion
-            // 
-            this.comboboxDeleteQuestion.FormattingEnabled = true;
-            this.comboboxDeleteQuestion.Location = new System.Drawing.Point(9, 19);
-            this.comboboxDeleteQuestion.Name = "comboboxDeleteQuestion";
-            this.comboboxDeleteQuestion.Size = new System.Drawing.Size(358, 21);
-            this.comboboxDeleteQuestion.TabIndex = 0;
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Location = new System.Drawing.Point(269, 182);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(98, 23);
-            this.buttonAdd.TabIndex = 8;
-            this.buttonAdd.Text = "Добавить";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Выберите вопрос";
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Location = new System.Drawing.Point(269, 182);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(98, 23);
-            this.buttonDelete.TabIndex = 2;
-            this.buttonDelete.Text = "Удалить";
-            this.buttonDelete.UseVisualStyleBackColor = true;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Выберите вопрос";
-            // 
-            // comboBoxEdit
-            // 
-            this.comboBoxEdit.FormattingEnabled = true;
-            this.comboBoxEdit.Location = new System.Drawing.Point(6, 19);
-            this.comboBoxEdit.Name = "comboBoxEdit";
-            this.comboBoxEdit.Size = new System.Drawing.Size(358, 21);
-            this.comboBoxEdit.TabIndex = 2;
+            this.buttonEdit.Location = new System.Drawing.Point(266, 182);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(98, 23);
+            this.buttonEdit.TabIndex = 14;
+            this.buttonEdit.Text = "Редактировать";
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // label6
             // 
@@ -299,15 +292,22 @@
             this.textBoxEditAnswerRight.Size = new System.Drawing.Size(355, 20);
             this.textBoxEditAnswerRight.TabIndex = 8;
             // 
-            // buttonEdit
+            // label5
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(266, 182);
-            this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(98, 23);
-            this.buttonEdit.TabIndex = 14;
-            this.buttonEdit.Text = "Редактировать";
-            this.buttonEdit.UseVisualStyleBackColor = true;
-            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Выберите вопрос";
+            // 
+            // comboBoxEdit
+            // 
+            this.comboBoxEdit.FormattingEnabled = true;
+            this.comboBoxEdit.Location = new System.Drawing.Point(6, 19);
+            this.comboBoxEdit.Name = "comboBoxEdit";
+            this.comboBoxEdit.Size = new System.Drawing.Size(358, 21);
+            this.comboBoxEdit.TabIndex = 2;
             // 
             // tabpageImportExport
             // 
@@ -321,22 +321,55 @@
             this.tabpageImportExport.Text = "Импорт/Экспорт";
             this.tabpageImportExport.UseVisualStyleBackColor = true;
             // 
-            // textBoxImport
+            // groupBox2
             // 
-            this.textBoxImport.Location = new System.Drawing.Point(6, 19);
-            this.textBoxImport.Name = "textBoxImport";
-            this.textBoxImport.Size = new System.Drawing.Size(265, 20);
-            this.textBoxImport.TabIndex = 1;
+            this.groupBox2.Controls.Add(this.buttonExportXML);
+            this.groupBox2.Controls.Add(this.buttonExportTXT);
+            this.groupBox2.Controls.Add(this.buttonExportBrowse);
+            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Location = new System.Drawing.Point(6, 108);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(361, 102);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Экспорт";
             // 
-            // buttonImportBrowse
+            // buttonExportXML
             // 
-            this.buttonImportBrowse.Location = new System.Drawing.Point(277, 17);
-            this.buttonImportBrowse.Name = "buttonImportBrowse";
-            this.buttonImportBrowse.Size = new System.Drawing.Size(75, 23);
-            this.buttonImportBrowse.TabIndex = 2;
-            this.buttonImportBrowse.Text = "Обзор...";
-            this.buttonImportBrowse.UseVisualStyleBackColor = true;
-            this.buttonImportBrowse.Click += new System.EventHandler(this.buttonImportBrowse_Click);
+            this.buttonExportXML.Location = new System.Drawing.Point(277, 73);
+            this.buttonExportXML.Name = "buttonExportXML";
+            this.buttonExportXML.Size = new System.Drawing.Size(75, 23);
+            this.buttonExportXML.TabIndex = 5;
+            this.buttonExportXML.Text = "XML";
+            this.buttonExportXML.UseVisualStyleBackColor = true;
+            this.buttonExportXML.Click += new System.EventHandler(this.buttonExportXML_Click);
+            // 
+            // buttonExportTXT
+            // 
+            this.buttonExportTXT.Location = new System.Drawing.Point(196, 73);
+            this.buttonExportTXT.Name = "buttonExportTXT";
+            this.buttonExportTXT.Size = new System.Drawing.Size(75, 23);
+            this.buttonExportTXT.TabIndex = 4;
+            this.buttonExportTXT.Text = ".txt";
+            this.buttonExportTXT.UseVisualStyleBackColor = true;
+            this.buttonExportTXT.Click += new System.EventHandler(this.buttonExportTXT_Click);
+            // 
+            // buttonExportBrowse
+            // 
+            this.buttonExportBrowse.Location = new System.Drawing.Point(277, 19);
+            this.buttonExportBrowse.Name = "buttonExportBrowse";
+            this.buttonExportBrowse.Size = new System.Drawing.Size(75, 23);
+            this.buttonExportBrowse.TabIndex = 3;
+            this.buttonExportBrowse.Text = "Обзор...";
+            this.buttonExportBrowse.UseVisualStyleBackColor = true;
+            this.buttonExportBrowse.Click += new System.EventHandler(this.buttonExportBrowse_Click);
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(6, 19);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(265, 20);
+            this.textBox6.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -360,55 +393,22 @@
             this.buttonImportGo.UseVisualStyleBackColor = true;
             this.buttonImportGo.Click += new System.EventHandler(this.buttonImportGo_Click);
             // 
-            // groupBox2
+            // buttonImportBrowse
             // 
-            this.groupBox2.Controls.Add(this.buttonExportXML);
-            this.groupBox2.Controls.Add(this.buttonExportTXT);
-            this.groupBox2.Controls.Add(this.buttonExportBrowse);
-            this.groupBox2.Controls.Add(this.textBox6);
-            this.groupBox2.Location = new System.Drawing.Point(6, 108);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(361, 102);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Экспорт";
+            this.buttonImportBrowse.Location = new System.Drawing.Point(277, 17);
+            this.buttonImportBrowse.Name = "buttonImportBrowse";
+            this.buttonImportBrowse.Size = new System.Drawing.Size(75, 23);
+            this.buttonImportBrowse.TabIndex = 2;
+            this.buttonImportBrowse.Text = "Обзор...";
+            this.buttonImportBrowse.UseVisualStyleBackColor = true;
+            this.buttonImportBrowse.Click += new System.EventHandler(this.buttonImportBrowse_Click);
             // 
-            // textBox6
+            // textBoxImport
             // 
-            this.textBox6.Location = new System.Drawing.Point(6, 19);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(265, 20);
-            this.textBox6.TabIndex = 1;
-            // 
-            // buttonExportBrowse
-            // 
-            this.buttonExportBrowse.Location = new System.Drawing.Point(277, 19);
-            this.buttonExportBrowse.Name = "buttonExportBrowse";
-            this.buttonExportBrowse.Size = new System.Drawing.Size(75, 23);
-            this.buttonExportBrowse.TabIndex = 3;
-            this.buttonExportBrowse.Text = "Обзор...";
-            this.buttonExportBrowse.UseVisualStyleBackColor = true;
-            this.buttonExportBrowse.Click += new System.EventHandler(this.buttonExportBrowse_Click);
-            // 
-            // buttonExportTXT
-            // 
-            this.buttonExportTXT.Location = new System.Drawing.Point(196, 73);
-            this.buttonExportTXT.Name = "buttonExportTXT";
-            this.buttonExportTXT.Size = new System.Drawing.Size(75, 23);
-            this.buttonExportTXT.TabIndex = 4;
-            this.buttonExportTXT.Text = ".txt";
-            this.buttonExportTXT.UseVisualStyleBackColor = true;
-            this.buttonExportTXT.Click += new System.EventHandler(this.buttonExportTXT_Click);
-            // 
-            // buttonExportXML
-            // 
-            this.buttonExportXML.Location = new System.Drawing.Point(277, 73);
-            this.buttonExportXML.Name = "buttonExportXML";
-            this.buttonExportXML.Size = new System.Drawing.Size(75, 23);
-            this.buttonExportXML.TabIndex = 5;
-            this.buttonExportXML.Text = "XML";
-            this.buttonExportXML.UseVisualStyleBackColor = true;
-            this.buttonExportXML.Click += new System.EventHandler(this.buttonExportXML_Click);
+            this.textBoxImport.Location = new System.Drawing.Point(6, 19);
+            this.textBoxImport.Name = "textBoxImport";
+            this.textBoxImport.Size = new System.Drawing.Size(265, 20);
+            this.textBoxImport.TabIndex = 1;
             // 
             // AdminForm
             // 
@@ -430,10 +430,10 @@
             this.tabpageEdit.ResumeLayout(false);
             this.tabpageEdit.PerformLayout();
             this.tabpageImportExport.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -448,10 +448,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textboxAnswer_3;
-        private System.Windows.Forms.TextBox textboxAnswer_2;
-        private System.Windows.Forms.TextBox textboxAnswer_1;
-        private System.Windows.Forms.TextBox textboxAnswer_Right;
+        private System.Windows.Forms.TextBox textBoxNewAnswer3;
+        private System.Windows.Forms.TextBox textBoxNewAnswer2;
+        private System.Windows.Forms.TextBox textBoxNewAnswer1;
+        private System.Windows.Forms.TextBox textBoxNewAnswerRight;
         private System.Windows.Forms.TextBox textboxNewQuestion;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Label label4;
