@@ -44,6 +44,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItemAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonNextQuestion = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -51,9 +52,9 @@
             // 
             // buttonNew
             // 
-            this.buttonNew.Location = new System.Drawing.Point(12, 341);
+            this.buttonNew.Location = new System.Drawing.Point(18, 486);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(143, 37);
+            this.buttonNew.Size = new System.Drawing.Size(96, 37);
             this.buttonNew.TabIndex = 0;
             this.buttonNew.Text = "Новая игра";
             this.buttonNew.UseVisualStyleBackColor = true;
@@ -61,9 +62,9 @@
             // 
             // buttonTakeMoney
             // 
-            this.buttonTakeMoney.Location = new System.Drawing.Point(175, 341);
+            this.buttonTakeMoney.Location = new System.Drawing.Point(220, 486);
             this.buttonTakeMoney.Name = "buttonTakeMoney";
-            this.buttonTakeMoney.Size = new System.Drawing.Size(141, 37);
+            this.buttonTakeMoney.Size = new System.Drawing.Size(96, 37);
             this.buttonTakeMoney.TabIndex = 1;
             this.buttonTakeMoney.Text = "Забрать деньги";
             this.buttonTakeMoney.UseVisualStyleBackColor = true;
@@ -75,23 +76,23 @@
             this.groupBox1.Controls.Add(this.buttonAudienceHelp);
             this.groupBox1.Controls.Add(this.buttonFriendCall);
             this.groupBox1.Controls.Add(this.buttonFiftyFifty);
-            this.groupBox1.Location = new System.Drawing.Point(322, 35);
+            this.groupBox1.Location = new System.Drawing.Point(322, 28);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(284, 349);
+            this.groupBox1.Size = new System.Drawing.Size(284, 495);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
             // 
             // listboxMoney
             // 
             this.listboxMoney.FormattingEnabled = true;
             this.listboxMoney.Location = new System.Drawing.Point(6, 76);
             this.listboxMoney.Name = "listboxMoney";
-            this.listboxMoney.Size = new System.Drawing.Size(270, 264);
+            this.listboxMoney.Size = new System.Drawing.Size(270, 407);
             this.listboxMoney.TabIndex = 3;
             // 
             // buttonAudienceHelp
             // 
+            this.buttonAudienceHelp.Enabled = false;
             this.buttonAudienceHelp.Location = new System.Drawing.Point(190, 16);
             this.buttonAudienceHelp.Name = "buttonAudienceHelp";
             this.buttonAudienceHelp.Size = new System.Drawing.Size(86, 52);
@@ -102,6 +103,7 @@
             // 
             // buttonFriendCall
             // 
+            this.buttonFriendCall.Enabled = false;
             this.buttonFriendCall.Location = new System.Drawing.Point(98, 16);
             this.buttonFriendCall.Name = "buttonFriendCall";
             this.buttonFriendCall.Size = new System.Drawing.Size(86, 52);
@@ -112,6 +114,7 @@
             // 
             // buttonFiftyFifty
             // 
+            this.buttonFiftyFifty.Enabled = false;
             this.buttonFiftyFifty.Location = new System.Drawing.Point(6, 16);
             this.buttonFiftyFifty.Name = "buttonFiftyFifty";
             this.buttonFiftyFifty.Size = new System.Drawing.Size(86, 52);
@@ -132,7 +135,6 @@
             this.groupBox3.Size = new System.Drawing.Size(304, 267);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Вопрос";
             // 
             // buttonAnswer4
             // 
@@ -142,7 +144,7 @@
             this.buttonAnswer4.TabIndex = 4;
             this.buttonAnswer4.Text = "buttonAnswer4";
             this.buttonAnswer4.UseVisualStyleBackColor = true;
-            this.buttonAnswer4.Click += new System.EventHandler(this.buttonAnswer4_Click);
+            this.buttonAnswer4.Click += new System.EventHandler(this.buttonAnswer_Click);
             // 
             // buttonAnswer3
             // 
@@ -152,7 +154,7 @@
             this.buttonAnswer3.TabIndex = 3;
             this.buttonAnswer3.Text = "buttonAnswer3";
             this.buttonAnswer3.UseVisualStyleBackColor = true;
-            this.buttonAnswer3.Click += new System.EventHandler(this.buttonAnswer3_Click);
+            this.buttonAnswer3.Click += new System.EventHandler(this.buttonAnswer_Click);
             // 
             // buttonAnswer2
             // 
@@ -162,7 +164,7 @@
             this.buttonAnswer2.TabIndex = 2;
             this.buttonAnswer2.Text = "buttonAnswer2";
             this.buttonAnswer2.UseVisualStyleBackColor = true;
-            this.buttonAnswer2.Click += new System.EventHandler(this.buttonAnswer2_Click);
+            this.buttonAnswer2.Click += new System.EventHandler(this.buttonAnswer_Click);
             // 
             // buttonAnswer1
             // 
@@ -172,7 +174,7 @@
             this.buttonAnswer1.TabIndex = 1;
             this.buttonAnswer1.Text = "buttonAnswer1";
             this.buttonAnswer1.UseVisualStyleBackColor = true;
-            this.buttonAnswer1.Click += new System.EventHandler(this.buttonAnswer1_Click);
+            this.buttonAnswer1.Click += new System.EventHandler(this.buttonAnswer_Click);
             // 
             // textboxQuestion
             // 
@@ -198,21 +200,33 @@
             this.ToolStripMenuItemAdmin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemSettings});
             this.ToolStripMenuItemAdmin.Name = "ToolStripMenuItemAdmin";
-            this.ToolStripMenuItemAdmin.Size = new System.Drawing.Size(134, 20);
-            this.ToolStripMenuItemAdmin.Text = "Администрирование";
+            this.ToolStripMenuItemAdmin.Size = new System.Drawing.Size(79, 20);
+            this.ToolStripMenuItemAdmin.Text = "Настройки";
             // 
             // ToolStripMenuItemSettings
             // 
             this.ToolStripMenuItemSettings.Name = "ToolStripMenuItemSettings";
-            this.ToolStripMenuItemSettings.Size = new System.Drawing.Size(134, 22);
-            this.ToolStripMenuItemSettings.Text = "Настройки";
+            this.ToolStripMenuItemSettings.Size = new System.Drawing.Size(133, 22);
+            this.ToolStripMenuItemSettings.Text = "Вопросы...";
             this.ToolStripMenuItemSettings.Click += new System.EventHandler(this.ToolStripMenuItemSettings_Click);
+            // 
+            // buttonNextQuestion
+            // 
+            this.buttonNextQuestion.Enabled = false;
+            this.buttonNextQuestion.Location = new System.Drawing.Point(118, 486);
+            this.buttonNextQuestion.Name = "buttonNextQuestion";
+            this.buttonNextQuestion.Size = new System.Drawing.Size(96, 37);
+            this.buttonNextQuestion.TabIndex = 7;
+            this.buttonNextQuestion.Text = "Следующий вопрос";
+            this.buttonNextQuestion.UseVisualStyleBackColor = true;
+            this.buttonNextQuestion.Click += new System.EventHandler(this.buttonNextQuestion_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 396);
+            this.ClientSize = new System.Drawing.Size(618, 535);
+            this.Controls.Add(this.buttonNextQuestion);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.buttonNew);
             this.Controls.Add(this.buttonTakeMoney);
@@ -254,6 +268,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAdmin;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSettings;
+        private System.Windows.Forms.Button buttonNextQuestion;
     }
 }
 

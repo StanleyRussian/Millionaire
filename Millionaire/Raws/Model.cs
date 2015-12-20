@@ -7,7 +7,11 @@ namespace Millionaire
 {
     class Model : iModel
     {
-        int CurrentQuestion = 0;
+        public int CurrentQuestion
+        {
+            get;
+            private set;
+        }
 
         public List<Question> QuestionList
         {
@@ -16,6 +20,12 @@ namespace Millionaire
         }
 
         public string[] Answers
+        {
+            get;
+            private set;
+        }
+
+        public int[] SumList
         {
             get;
             private set;
@@ -33,6 +43,15 @@ namespace Millionaire
         public void Advance()
         {
             CurrentQuestion++;
+            if (QuestionList.Count == 0)
+            {
+                QuestionList.Add(new Question(
+                    "Вопросы с предыдущего запуска не найдены, пожалуйста импортируйет вопросы в настройках", "☻", "☺", "☻", "☺"));
+                QuestionChanged(QuestionList[CurrentQuestion].QuestionText);
+                QuestionList.Clear();
+                return;
+            }
+
             Random rnd = new Random();
             Answers = new string[4];
 
@@ -50,13 +69,30 @@ namespace Millionaire
 
         public void FiftyFifty()
         {
+            Random rnd = new Random();
+            Answers = new string[4];
 
+            for (int i = 0; i < 2; i++)
+            {
+                int tick = rnd.Next(0, 4);
+                while (Answers[tick] != null)
+                    tick = rnd.Next(0, 4);
+                Answers[tick] = QuestionList[CurrentQuestion].Answers[i];
+            }
+
+            AnswersChanged(Answers);
         }
 
         public void NewGame()
         {
             CurrentQuestion = -1;
             Advance();
+            SumList = new int[QuestionList.Count];
+            int step = 1000000 / QuestionList.Count;
+            for (int i = 0; i < QuestionList.Count; i++) 
+            {
+                SumList[i] = step*i;
+            }
         }
 
         public void AddQuestion(Question q)

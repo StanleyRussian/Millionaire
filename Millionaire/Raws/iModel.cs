@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Millionaire
 {
@@ -8,10 +7,13 @@ namespace Millionaire
         List<Question> QuestionList
         { get; }
 
-        //int CurrentQuestion
-        //{ get; }
+        int CurrentQuestion
+        { get; }
 
         string[] Answers
+        { get; }
+
+        int[] SumList
         { get; }
 
         void NewGame();

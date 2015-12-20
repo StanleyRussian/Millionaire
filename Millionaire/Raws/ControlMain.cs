@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Millionaire
 {
@@ -10,6 +6,11 @@ namespace Millionaire
     {
         iModel _model = new Model();
         ControlManage ManageCtrl;
+
+        public int[] SumList
+        {
+            get { return _model.SumList; }
+        }
 
         public event QuestionDlgt QuestionChanged;
         public event StringsDlgt AnswersChanged;
@@ -42,24 +43,40 @@ namespace Millionaire
             throw new NotImplementedException();
         }
 
-        public void AnswerButton(int index)
+        public bool AnswerButton(string answer)
         {
-            throw new NotImplementedException();
+            if (answer == _model.QuestionList[_model.CurrentQuestion].Answers[0])
+            {
+                return true;
+            }
+            else
+                return false;
         }
 
         public void AudienceHelp()
         {
-            throw new NotImplementedException();
+            Random rand = new Random();
+            int a = rand.Next(0, 50);
+            int b = rand.Next(0, 50);
+            int c = rand.Next(0, 50);
+            int d = 100 - (a + b + c);
+            AudienceForm af = new AudienceForm(a, b, c, d, _model.Answers);
+            af.Show();
         }
 
         public void FiftyFifty()
         {
-            throw new NotImplementedException();
+            _model.FiftyFifty();
         }
 
-        public void FriendCall()
+        public string FriendCall()
         {
-            throw new NotImplementedException();
+            Random rand = new Random();
+            if (rand.Next(0, 2) == 1)
+                return "К сожалению, никто не ответил на звонок";
+            else
+                return string.Format("Я уверен, что это {0}", _model.Answers[rand.Next(0, 4)]);
+           
         }
 
         public void CreateAdminForm()
@@ -71,6 +88,11 @@ namespace Millionaire
         public void Die()
         {
             _model.Die();
+        }
+
+        public void NextQuestion()
+        {
+            _model.Advance();
         }
     }
 }
