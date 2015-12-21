@@ -20,6 +20,7 @@ namespace Millionaire
             string ar, string a1, string a2, string a3)
         {
             QuestionText = argName;
+            Answers = new List<string>();
             Answers.Add(ar);
             Answers.Add(a1);
             Answers.Add(a2);

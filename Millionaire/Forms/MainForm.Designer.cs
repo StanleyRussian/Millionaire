@@ -31,7 +31,6 @@
             this.buttonNew = new System.Windows.Forms.Button();
             this.buttonTakeMoney = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listboxMoney = new System.Windows.Forms.ListBox();
             this.buttonAudienceHelp = new System.Windows.Forms.Button();
             this.buttonFriendCall = new System.Windows.Forms.Button();
             this.buttonFiftyFifty = new System.Windows.Forms.Button();
@@ -44,6 +43,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ToolStripMenuItemAdmin = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonNextQuestion = new System.Windows.Forms.Button();
+            this.labelCurrentSum = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -51,9 +52,9 @@
             // 
             // buttonNew
             // 
-            this.buttonNew.Location = new System.Drawing.Point(12, 341);
+            this.buttonNew.Location = new System.Drawing.Point(18, 416);
             this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(143, 37);
+            this.buttonNew.Size = new System.Drawing.Size(96, 37);
             this.buttonNew.TabIndex = 0;
             this.buttonNew.Text = "Новая игра";
             this.buttonNew.UseVisualStyleBackColor = true;
@@ -61,9 +62,10 @@
             // 
             // buttonTakeMoney
             // 
-            this.buttonTakeMoney.Location = new System.Drawing.Point(175, 341);
+            this.buttonTakeMoney.Enabled = false;
+            this.buttonTakeMoney.Location = new System.Drawing.Point(220, 416);
             this.buttonTakeMoney.Name = "buttonTakeMoney";
-            this.buttonTakeMoney.Size = new System.Drawing.Size(141, 37);
+            this.buttonTakeMoney.Size = new System.Drawing.Size(96, 37);
             this.buttonTakeMoney.TabIndex = 1;
             this.buttonTakeMoney.Text = "Забрать деньги";
             this.buttonTakeMoney.UseVisualStyleBackColor = true;
@@ -71,28 +73,19 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.listboxMoney);
             this.groupBox1.Controls.Add(this.buttonAudienceHelp);
             this.groupBox1.Controls.Add(this.buttonFriendCall);
             this.groupBox1.Controls.Add(this.buttonFiftyFifty);
-            this.groupBox1.Location = new System.Drawing.Point(322, 35);
+            this.groupBox1.Location = new System.Drawing.Point(18, 301);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(284, 349);
+            this.groupBox1.Size = new System.Drawing.Size(298, 80);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // listboxMoney
-            // 
-            this.listboxMoney.FormattingEnabled = true;
-            this.listboxMoney.Location = new System.Drawing.Point(6, 76);
-            this.listboxMoney.Name = "listboxMoney";
-            this.listboxMoney.Size = new System.Drawing.Size(270, 264);
-            this.listboxMoney.TabIndex = 3;
             // 
             // buttonAudienceHelp
             // 
-            this.buttonAudienceHelp.Location = new System.Drawing.Point(190, 16);
+            this.buttonAudienceHelp.Enabled = false;
+            this.buttonAudienceHelp.Location = new System.Drawing.Point(206, 16);
             this.buttonAudienceHelp.Name = "buttonAudienceHelp";
             this.buttonAudienceHelp.Size = new System.Drawing.Size(86, 52);
             this.buttonAudienceHelp.TabIndex = 2;
@@ -102,7 +95,8 @@
             // 
             // buttonFriendCall
             // 
-            this.buttonFriendCall.Location = new System.Drawing.Point(98, 16);
+            this.buttonFriendCall.Enabled = false;
+            this.buttonFriendCall.Location = new System.Drawing.Point(107, 16);
             this.buttonFriendCall.Name = "buttonFriendCall";
             this.buttonFriendCall.Size = new System.Drawing.Size(86, 52);
             this.buttonFriendCall.TabIndex = 1;
@@ -112,6 +106,7 @@
             // 
             // buttonFiftyFifty
             // 
+            this.buttonFiftyFifty.Enabled = false;
             this.buttonFiftyFifty.Location = new System.Drawing.Point(6, 16);
             this.buttonFiftyFifty.Name = "buttonFiftyFifty";
             this.buttonFiftyFifty.Size = new System.Drawing.Size(86, 52);
@@ -132,47 +127,50 @@
             this.groupBox3.Size = new System.Drawing.Size(304, 267);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Вопрос";
             // 
             // buttonAnswer4
             // 
+            this.buttonAnswer4.Enabled = false;
             this.buttonAnswer4.Location = new System.Drawing.Point(6, 217);
             this.buttonAnswer4.Name = "buttonAnswer4";
             this.buttonAnswer4.Size = new System.Drawing.Size(292, 41);
             this.buttonAnswer4.TabIndex = 4;
             this.buttonAnswer4.Text = "buttonAnswer4";
             this.buttonAnswer4.UseVisualStyleBackColor = true;
-            this.buttonAnswer4.Click += new System.EventHandler(this.buttonAnswer4_Click);
+            this.buttonAnswer4.Click += new System.EventHandler(this.buttonAnswer_Click);
             // 
             // buttonAnswer3
             // 
+            this.buttonAnswer3.Enabled = false;
             this.buttonAnswer3.Location = new System.Drawing.Point(6, 170);
             this.buttonAnswer3.Name = "buttonAnswer3";
             this.buttonAnswer3.Size = new System.Drawing.Size(292, 41);
             this.buttonAnswer3.TabIndex = 3;
             this.buttonAnswer3.Text = "buttonAnswer3";
             this.buttonAnswer3.UseVisualStyleBackColor = true;
-            this.buttonAnswer3.Click += new System.EventHandler(this.buttonAnswer3_Click);
+            this.buttonAnswer3.Click += new System.EventHandler(this.buttonAnswer_Click);
             // 
             // buttonAnswer2
             // 
+            this.buttonAnswer2.Enabled = false;
             this.buttonAnswer2.Location = new System.Drawing.Point(6, 123);
             this.buttonAnswer2.Name = "buttonAnswer2";
             this.buttonAnswer2.Size = new System.Drawing.Size(292, 41);
             this.buttonAnswer2.TabIndex = 2;
             this.buttonAnswer2.Text = "buttonAnswer2";
             this.buttonAnswer2.UseVisualStyleBackColor = true;
-            this.buttonAnswer2.Click += new System.EventHandler(this.buttonAnswer2_Click);
+            this.buttonAnswer2.Click += new System.EventHandler(this.buttonAnswer_Click);
             // 
             // buttonAnswer1
             // 
+            this.buttonAnswer1.Enabled = false;
             this.buttonAnswer1.Location = new System.Drawing.Point(6, 76);
             this.buttonAnswer1.Name = "buttonAnswer1";
             this.buttonAnswer1.Size = new System.Drawing.Size(292, 41);
             this.buttonAnswer1.TabIndex = 1;
             this.buttonAnswer1.Text = "buttonAnswer1";
             this.buttonAnswer1.UseVisualStyleBackColor = true;
-            this.buttonAnswer1.Click += new System.EventHandler(this.buttonAnswer1_Click);
+            this.buttonAnswer1.Click += new System.EventHandler(this.buttonAnswer_Click);
             // 
             // textboxQuestion
             // 
@@ -189,31 +187,53 @@
             this.ToolStripMenuItemAdmin});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(618, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(326, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // ToolStripMenuItemAdmin
             // 
             this.ToolStripMenuItemAdmin.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItemSettings});
             this.ToolStripMenuItemAdmin.Name = "ToolStripMenuItemAdmin";
-            this.ToolStripMenuItemAdmin.Size = new System.Drawing.Size(134, 20);
-            this.ToolStripMenuItemAdmin.Text = "Администрирование";
+            this.ToolStripMenuItemAdmin.Size = new System.Drawing.Size(79, 20);
+            this.ToolStripMenuItemAdmin.Text = "Настройки";
             // 
             // ToolStripMenuItemSettings
             // 
             this.ToolStripMenuItemSettings.Name = "ToolStripMenuItemSettings";
-            this.ToolStripMenuItemSettings.Size = new System.Drawing.Size(134, 22);
-            this.ToolStripMenuItemSettings.Text = "Настройки";
+            this.ToolStripMenuItemSettings.Size = new System.Drawing.Size(133, 22);
+            this.ToolStripMenuItemSettings.Text = "Вопросы...";
             this.ToolStripMenuItemSettings.Click += new System.EventHandler(this.ToolStripMenuItemSettings_Click);
+            // 
+            // buttonNextQuestion
+            // 
+            this.buttonNextQuestion.Enabled = false;
+            this.buttonNextQuestion.Location = new System.Drawing.Point(118, 416);
+            this.buttonNextQuestion.Name = "buttonNextQuestion";
+            this.buttonNextQuestion.Size = new System.Drawing.Size(96, 37);
+            this.buttonNextQuestion.TabIndex = 7;
+            this.buttonNextQuestion.Text = "Следующий вопрос";
+            this.buttonNextQuestion.UseVisualStyleBackColor = true;
+            this.buttonNextQuestion.Click += new System.EventHandler(this.buttonNextQuestion_Click);
+            // 
+            // labelCurrentSum
+            // 
+            this.labelCurrentSum.AutoSize = true;
+            this.labelCurrentSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelCurrentSum.Location = new System.Drawing.Point(20, 384);
+            this.labelCurrentSum.Name = "labelCurrentSum";
+            this.labelCurrentSum.Size = new System.Drawing.Size(192, 24);
+            this.labelCurrentSum.TabIndex = 8;
+            this.labelCurrentSum.Text = "Начните новую игру";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(618, 396);
+            this.ClientSize = new System.Drawing.Size(326, 535);
+            this.Controls.Add(this.labelCurrentSum);
+            this.Controls.Add(this.buttonNextQuestion);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.buttonNew);
             this.Controls.Add(this.buttonTakeMoney);
@@ -226,6 +246,7 @@
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Кто хочет стать миллионером?";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -241,7 +262,6 @@
         private System.Windows.Forms.Button buttonNew;
         private System.Windows.Forms.Button buttonTakeMoney;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListBox listboxMoney;
         private System.Windows.Forms.Button buttonAudienceHelp;
         private System.Windows.Forms.Button buttonFriendCall;
         private System.Windows.Forms.Button buttonFiftyFifty;
@@ -254,6 +274,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAdmin;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemSettings;
+        private System.Windows.Forms.Button buttonNextQuestion;
+        private System.Windows.Forms.Label labelCurrentSum;
     }
 }
 

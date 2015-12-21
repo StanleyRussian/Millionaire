@@ -1,21 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Millionaire
+﻿namespace Millionaire
 {
     interface iControlMain
     {
         event StringsDlgt AnswersChanged;
         event QuestionDlgt QuestionChanged;
+        event IntDlgt IndexChanged;
+
+        int[] SumList
+        { get; }
 
         void NewGame();
         void PlayerExit();
-        void AnswerButton(int index);
+        bool AnswerButton(string answer);
         void AudienceHelp();
         void FiftyFifty();
-        void FriendCall();
+        string FriendCall();
+        void NextQuestion();
+
+        void CreateAdminForm();
+
+        void Die();
     }
 }

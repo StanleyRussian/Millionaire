@@ -1,31 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Millionaire
 {
-    interface iModel
+    public interface iModel
     {
         List<Question> QuestionList
         { get; }
 
-        //int CurrentQuestion
-        //{ get; }
+        int CurrentQuestion
+        { get; }
 
-        List<string> Answers
+        string[] Answers
+        { get; }
+
+        int[] SumList
         { get; }
 
         void NewGame();
         void Advance();
         void FiftyFifty();
-        //Other cheats don't go into model methods since they don't change it.
+        void Die();
 
-        //Functions for managing form
+        //Functions for managing
         void AddQuestion(Question q);
+        void EditQuestion(Question q, int index);
+        void DeleteQuestion(int index);
+        void Import(string path);
+        void ExportTxt(string name);
+        void ExportXml(string name);
 
         event QuestionDlgt QuestionChanged;
         event StringsDlgt AnswersChanged;
+        event IntDlgt IndexChanged;
     }
 
     public delegate void QuestionDlgt(string question);
-    public delegate void StringsDlgt(List<string> Answers);
+    public delegate void StringsDlgt(string[] Answers);
+    public delegate void IntDlgt(int CurrentIndex);
 }
