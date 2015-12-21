@@ -14,6 +14,7 @@ namespace Millionaire
 
         public event QuestionDlgt QuestionChanged;
         public event StringsDlgt AnswersChanged;
+        public event IntDlgt IndexChanged;
 
         public ControlMain()
         {
@@ -21,6 +22,12 @@ namespace Millionaire
 
             _model.QuestionChanged += _model_QuestionChanged;
             _model.AnswersChanged += _model_AnswersChanged;
+            _model.IndexChanged += _model_IndexChanged;
+        }
+
+        private void _model_IndexChanged(int CurrentIndex)
+        {
+            IndexChanged(CurrentIndex);
         }
 
         private void _model_AnswersChanged(string[] Answers)

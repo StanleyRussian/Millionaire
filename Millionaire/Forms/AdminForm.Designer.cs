@@ -57,12 +57,12 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.buttonExportXML = new System.Windows.Forms.Button();
             this.buttonExportTXT = new System.Windows.Forms.Button();
-            this.buttonExportBrowse = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonImportGo = new System.Windows.Forms.Button();
             this.buttonImportBrowse = new System.Windows.Forms.Button();
             this.textBoxImport = new System.Windows.Forms.TextBox();
+            this.textBoxExport = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabpageAdd.SuspendLayout();
             this.tabpageDelete.SuspendLayout();
@@ -308,6 +308,7 @@
             this.comboBoxEdit.Name = "comboBoxEdit";
             this.comboBoxEdit.Size = new System.Drawing.Size(358, 21);
             this.comboBoxEdit.TabIndex = 2;
+            this.comboBoxEdit.SelectionChangeCommitted += new System.EventHandler(this.comboBoxEdit_SelectionChangeCommitted);
             // 
             // tabpageImportExport
             // 
@@ -323,10 +324,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.buttonExportXML);
             this.groupBox2.Controls.Add(this.buttonExportTXT);
-            this.groupBox2.Controls.Add(this.buttonExportBrowse);
-            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.textBoxExport);
             this.groupBox2.Location = new System.Drawing.Point(6, 108);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(361, 102);
@@ -353,23 +354,6 @@
             this.buttonExportTXT.Text = ".txt";
             this.buttonExportTXT.UseVisualStyleBackColor = true;
             this.buttonExportTXT.Click += new System.EventHandler(this.buttonExportTXT_Click);
-            // 
-            // buttonExportBrowse
-            // 
-            this.buttonExportBrowse.Location = new System.Drawing.Point(277, 19);
-            this.buttonExportBrowse.Name = "buttonExportBrowse";
-            this.buttonExportBrowse.Size = new System.Drawing.Size(75, 23);
-            this.buttonExportBrowse.TabIndex = 3;
-            this.buttonExportBrowse.Text = "Обзор...";
-            this.buttonExportBrowse.UseVisualStyleBackColor = true;
-            this.buttonExportBrowse.Click += new System.EventHandler(this.buttonExportBrowse_Click);
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(6, 19);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(265, 20);
-            this.textBox6.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -409,6 +393,22 @@
             this.textBoxImport.Name = "textBoxImport";
             this.textBoxImport.Size = new System.Drawing.Size(265, 20);
             this.textBoxImport.TabIndex = 1;
+            // 
+            // textBoxExport
+            // 
+            this.textBoxExport.Location = new System.Drawing.Point(87, 19);
+            this.textBoxExport.Name = "textBoxExport";
+            this.textBoxExport.Size = new System.Drawing.Size(265, 20);
+            this.textBoxExport.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(14, 22);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 13);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Имя файла:";
             // 
             // AdminForm
             // 
@@ -469,11 +469,11 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button buttonExportXML;
         private System.Windows.Forms.Button buttonExportTXT;
-        private System.Windows.Forms.Button buttonExportBrowse;
-        private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button buttonImportGo;
         private System.Windows.Forms.Button buttonImportBrowse;
         private System.Windows.Forms.TextBox textBoxImport;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBoxExport;
     }
 }

@@ -65,6 +65,7 @@ namespace Millionaire
 
             QuestionChanged(QuestionList[CurrentQuestion].QuestionText);
             AnswersChanged(Answers);
+            IndexChanged(SumList[CurrentQuestion]);
         }
 
         public void FiftyFifty()
@@ -86,13 +87,14 @@ namespace Millionaire
         public void NewGame()
         {
             CurrentQuestion = -1;
-            Advance();
             SumList = new int[QuestionList.Count];
             int step = 1000000 / QuestionList.Count;
-            for (int i = 0; i < QuestionList.Count; i++) 
+            for (int i = 0; i < QuestionList.Count - 1; i++) 
             {
-                SumList[i] = step*i;
+                SumList[i] = step * i;
             }
+            SumList[QuestionList.Count - 1] = 1000000;
+            Advance();
         }
 
         public void AddQuestion(Question q)
@@ -102,11 +104,12 @@ namespace Millionaire
 
         public void Die()
         {
-            ExportTxt();
+            ExportTxt("LastQuestions");
         }
 
         public void Import(string path)
         {
+            QuestionList.Clear();
             string ext = Path.GetExtension(path);
             if (ext == ".txt")
             {
@@ -131,10 +134,11 @@ namespace Millionaire
             }
         }
 
-        public void ExportTxt()
+        public void ExportTxt(string name)
         {
-            //FileStream f = new FileStream("LastQuestions.txt", FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite);
-            using (FileStream f = File.Create("LastQuestions.txt"))
+            if (Path.GetExtension(name) != ".txt")
+                name += ".txt";
+            using (FileStream f = File.Create(name))
             {
                 using (StreamWriter sw = new StreamWriter(f))
                 {
@@ -150,7 +154,23 @@ namespace Millionaire
             }
         }
 
+        public void EditQuestion(Question q, int index)
+        {
+            QuestionList[index] = q;
+        }
+
+        public void DeleteQuestion(int index)
+        {
+            QuestionList.RemoveAt(index);
+        }
+
+        public void ExportXml(string name)
+        {
+            throw new NotImplementedException();
+        }
+
         public event QuestionDlgt QuestionChanged;
         public event StringsDlgt AnswersChanged;
+        public event IntDlgt IndexChanged;
     }
 }

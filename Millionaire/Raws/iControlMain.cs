@@ -4,6 +4,7 @@
     {
         event StringsDlgt AnswersChanged;
         event QuestionDlgt QuestionChanged;
+        event IntDlgt IndexChanged;
 
         int[] SumList
         { get; }

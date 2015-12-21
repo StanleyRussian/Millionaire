@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Millionaire
 {
@@ -11,10 +13,36 @@ namespace Millionaire
             _model = model;
         }
 
+        public List<Question> QuestionList
+        {
+            get { return _model.QuestionList; }
+        }
+
         public void AddQuestion(string q, string ar, string a1, string a2, string a3)
         {
             Question NewQ = new Question(q, ar, a1, a2, a3);
             _model.AddQuestion(NewQ);
+        }
+
+        public void DeleteQuestion(int index)
+        {
+            _model.DeleteQuestion(index);
+        }
+
+        public void EditQuestion(int index, string q, string ar, string a1, string a2, string a3)
+        {
+            Question EditedQ = new Question(q, ar, a1, a2, a3);
+            _model.EditQuestion(EditedQ, index);
+        }
+
+        public void ExportTxt(string name)
+        {
+            _model.ExportTxt(name);
+        }
+
+        public void ExportXml(string name)
+        {
+            throw new NotImplementedException();
         }
 
         public void Import(string path)

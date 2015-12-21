@@ -23,13 +23,18 @@ namespace Millionaire
 
         //Functions for managing
         void AddQuestion(Question q);
+        void EditQuestion(Question q, int index);
+        void DeleteQuestion(int index);
         void Import(string path);
-        void ExportTxt();
+        void ExportTxt(string name);
+        void ExportXml(string name);
 
         event QuestionDlgt QuestionChanged;
         event StringsDlgt AnswersChanged;
+        event IntDlgt IndexChanged;
     }
 
     public delegate void QuestionDlgt(string question);
     public delegate void StringsDlgt(string[] Answers);
+    public delegate void IntDlgt(int CurrentIndex);
 }

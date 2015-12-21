@@ -13,11 +13,21 @@ namespace Millionaire
             InitializeComponent();
             _control.QuestionChanged += _control_QuestionChanged;
             _control.AnswersChanged += _control_AnswersChanged;
+            _control.IndexChanged += _control_IndexChanged;
 
             AnswerButtons[0] = buttonAnswer1;
             AnswerButtons[1] = buttonAnswer2;
             AnswerButtons[2] = buttonAnswer3;
             AnswerButtons[3] = buttonAnswer4;
+        }
+
+        private void _control_IndexChanged(int arg)
+        {
+            labelCurrentSum.Text = string.Format("Ваш текущий выигрыш: {0}", arg);
+            if (arg != 0)
+                buttonTakeMoney.Enabled = true;
+            else
+                buttonTakeMoney.Enabled = false;
         }
 
         private void _control_AnswersChanged(string[] Answers)
@@ -56,6 +66,7 @@ namespace Millionaire
         private void ToolStripMenuItemSettings_Click(object sender, EventArgs e)
         {
             _control.CreateAdminForm();
+            buttonNew_Click(this, null);
         }
 
         private void buttonNew_Click(object sender, EventArgs e)
@@ -65,14 +76,19 @@ namespace Millionaire
             buttonFriendCall.Enabled = true;
             buttonAudienceHelp.Enabled = true;
             buttonNextQuestion.Enabled = false;
-            listboxMoney.Items.Clear();
-            foreach (int i in _control.SumList)
-                listboxMoney.Items.Add(i);
+            foreach (Button b in AnswerButtons)
+                b.Enabled = true;
         }
 
         private void buttonTakeMoney_Click(object sender, EventArgs e)
         {
-            _control.PlayerExit();
+            var result = MessageBox.Show(
+                    this, string.Format("Поздравляем! {0}", labelCurrentSum.Text), "Поздравляем!",
+                    MessageBoxButtons.RetryCancel);
+            if (result == DialogResult.Retry)
+                buttonNew_Click(this, null);
+            else
+                Close();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -95,7 +111,7 @@ namespace Millionaire
                     this, "Вы проиграли! Удачи в следующий раз", "Вы - самое слабое звено", 
                     MessageBoxButtons.RetryCancel);
                 if (result == DialogResult.Retry)
-                    _control.NewGame();
+                    buttonNew_Click(this, null);
                 else
                     Close();
             }
