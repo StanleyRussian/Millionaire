@@ -66,6 +66,7 @@ namespace Millionaire
 
         private void buttonExportXML_Click(object sender, EventArgs e)
         {
+            _control.ExportXml(textBoxExport.Text);
             Close();
         }
 

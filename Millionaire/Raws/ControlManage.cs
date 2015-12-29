@@ -42,7 +42,7 @@ namespace Millionaire
 
         public void ExportXml(string name)
         {
-            throw new NotImplementedException();
+            _model.ExportXml(name);
         }
 
         public void Import(string path)
