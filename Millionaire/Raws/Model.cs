@@ -17,7 +17,7 @@ namespace Millionaire
         public List<Question> QuestionList
         {
             get;
-            private set;
+            set;
         }
 
         public string[] Answers
@@ -44,15 +44,6 @@ namespace Millionaire
         public void Advance()
         {
             CurrentQuestion++;
-            if (QuestionList.Count == 0)
-            {
-                QuestionList.Add(new Question(
-                    "Вопросы с предыдущего запуска не найдены, пожалуйста импортируйет вопросы в настройках", "☻", "☺", "☻", "☺"));
-                QuestionChanged(QuestionList[CurrentQuestion].QuestionText);
-                QuestionList.Clear();
-                return;
-            }
-
             Random rnd = new Random();
             Answers = new string[4];
 
@@ -87,15 +78,25 @@ namespace Millionaire
 
         public void NewGame()
         {
+            if (QuestionList.Count == 0)
+            {
+                QuestionList.Add(new Question(
+                    "Вопросы с предыдущего запуска не найдены, пожалуйста импортируйет вопросы в настройках", "☻", "☺", "☻", "☺"));
+                QuestionChanged(QuestionList[CurrentQuestion].QuestionText);
+                AnswersChanged(QuestionList[CurrentQuestion].Answers);
+                return;
+            }
+
             CurrentQuestion = -1;
             SumList = new int[QuestionList.Count];
             int step = 1000000 / QuestionList.Count;
-            for (int i = 0; i < QuestionList.Count - 1; i++) 
+            for (int i = 0; i < QuestionList.Count - 1; i++)
             {
                 SumList[i] = step * i;
             }
             SumList[QuestionList.Count - 1] = 1000000;
             Advance();
+
         }
 
         public void AddQuestion(Question q)

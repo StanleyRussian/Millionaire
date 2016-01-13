@@ -55,14 +55,20 @@
             this.comboBoxEdit = new System.Windows.Forms.ComboBox();
             this.tabpageImportExport = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.buttonExportXML = new System.Windows.Forms.Button();
             this.buttonExportTXT = new System.Windows.Forms.Button();
+            this.textBoxExport = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.buttonImportGo = new System.Windows.Forms.Button();
             this.buttonImportBrowse = new System.Windows.Forms.Button();
             this.textBoxImport = new System.Windows.Forms.TextBox();
-            this.textBoxExport = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.tabpageDatabase = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.buttonDbPush = new System.Windows.Forms.Button();
+            this.buttonDbPull = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.buttonDbAttachedMode = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabpageAdd.SuspendLayout();
             this.tabpageDelete.SuspendLayout();
@@ -70,6 +76,9 @@
             this.tabpageImportExport.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.tabpageDatabase.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -78,6 +87,7 @@
             this.tabControl.Controls.Add(this.tabpageDelete);
             this.tabControl.Controls.Add(this.tabpageEdit);
             this.tabControl.Controls.Add(this.tabpageImportExport);
+            this.tabControl.Controls.Add(this.tabpageDatabase);
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Multiline = true;
             this.tabControl.Name = "tabControl";
@@ -216,6 +226,7 @@
             this.comboboxDeleteQuestion.Name = "comboboxDeleteQuestion";
             this.comboboxDeleteQuestion.Size = new System.Drawing.Size(358, 21);
             this.comboboxDeleteQuestion.TabIndex = 0;
+            this.comboboxDeleteQuestion.DropDown += new System.EventHandler(this.comboboxDeleteQuestion_DropDown);
             // 
             // tabpageEdit
             // 
@@ -308,6 +319,7 @@
             this.comboBoxEdit.Name = "comboBoxEdit";
             this.comboBoxEdit.Size = new System.Drawing.Size(358, 21);
             this.comboBoxEdit.TabIndex = 2;
+            this.comboBoxEdit.DropDown += new System.EventHandler(this.comboBoxEdit_DropDown);
             this.comboBoxEdit.SelectionChangeCommitted += new System.EventHandler(this.comboBoxEdit_SelectionChangeCommitted);
             // 
             // tabpageImportExport
@@ -335,6 +347,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Экспорт";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(14, 22);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(67, 13);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Имя файла:";
+            // 
             // buttonExportXML
             // 
             this.buttonExportXML.Location = new System.Drawing.Point(277, 73);
@@ -354,6 +375,13 @@
             this.buttonExportTXT.Text = ".txt";
             this.buttonExportTXT.UseVisualStyleBackColor = true;
             this.buttonExportTXT.Click += new System.EventHandler(this.buttonExportTXT_Click);
+            // 
+            // textBoxExport
+            // 
+            this.textBoxExport.Location = new System.Drawing.Point(87, 19);
+            this.textBoxExport.Name = "textBoxExport";
+            this.textBoxExport.Size = new System.Drawing.Size(265, 20);
+            this.textBoxExport.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -394,21 +422,68 @@
             this.textBoxImport.Size = new System.Drawing.Size(265, 20);
             this.textBoxImport.TabIndex = 1;
             // 
-            // textBoxExport
+            // tabpageDatabase
             // 
-            this.textBoxExport.Location = new System.Drawing.Point(87, 19);
-            this.textBoxExport.Name = "textBoxExport";
-            this.textBoxExport.Size = new System.Drawing.Size(265, 20);
-            this.textBoxExport.TabIndex = 1;
+            this.tabpageDatabase.Controls.Add(this.groupBox5);
+            this.tabpageDatabase.Controls.Add(this.groupBox4);
+            this.tabpageDatabase.Location = new System.Drawing.Point(4, 40);
+            this.tabpageDatabase.Name = "tabpageDatabase";
+            this.tabpageDatabase.Padding = new System.Windows.Forms.Padding(3);
+            this.tabpageDatabase.Size = new System.Drawing.Size(373, 216);
+            this.tabpageDatabase.TabIndex = 4;
+            this.tabpageDatabase.Text = "Работа с БД";
+            this.tabpageDatabase.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // groupBox5
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(14, 22);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(67, 13);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Имя файла:";
+            this.groupBox5.Controls.Add(this.buttonDbPush);
+            this.groupBox5.Controls.Add(this.buttonDbPull);
+            this.groupBox5.Location = new System.Drawing.Point(6, 66);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(361, 54);
+            this.groupBox5.TabIndex = 4;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Отсоединенный режим";
+            // 
+            // buttonDbPush
+            // 
+            this.buttonDbPush.Location = new System.Drawing.Point(6, 19);
+            this.buttonDbPush.Name = "buttonDbPush";
+            this.buttonDbPush.Size = new System.Drawing.Size(168, 23);
+            this.buttonDbPush.TabIndex = 4;
+            this.buttonDbPush.Text = "Обновить базу (Push)";
+            this.buttonDbPush.UseVisualStyleBackColor = true;
+            this.buttonDbPush.Click += new System.EventHandler(this.buttonDbPush_Click);
+            // 
+            // buttonDbPull
+            // 
+            this.buttonDbPull.Location = new System.Drawing.Point(180, 19);
+            this.buttonDbPull.Name = "buttonDbPull";
+            this.buttonDbPull.Size = new System.Drawing.Size(174, 23);
+            this.buttonDbPull.TabIndex = 3;
+            this.buttonDbPull.Text = "Обновить приложение (Pull)";
+            this.buttonDbPull.UseVisualStyleBackColor = true;
+            this.buttonDbPull.Click += new System.EventHandler(this.buttonDbPull_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.buttonDbAttachedMode);
+            this.groupBox4.Location = new System.Drawing.Point(6, 6);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(361, 54);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Присоединенный режим";
+            // 
+            // buttonDbAttachedMode
+            // 
+            this.buttonDbAttachedMode.Location = new System.Drawing.Point(6, 19);
+            this.buttonDbAttachedMode.Name = "buttonDbAttachedMode";
+            this.buttonDbAttachedMode.Size = new System.Drawing.Size(349, 23);
+            this.buttonDbAttachedMode.TabIndex = 2;
+            this.buttonDbAttachedMode.Text = "Включить";
+            this.buttonDbAttachedMode.UseVisualStyleBackColor = true;
+            this.buttonDbAttachedMode.Click += new System.EventHandler(this.buttonDbAttachedMode_Click);
             // 
             // AdminForm
             // 
@@ -422,6 +497,7 @@
             this.Name = "AdminForm";
             this.ShowIcon = false;
             this.Text = "AdminForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminForm_FormClosed);
             this.tabControl.ResumeLayout(false);
             this.tabpageAdd.ResumeLayout(false);
             this.tabpageAdd.PerformLayout();
@@ -434,6 +510,9 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabpageDatabase.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -475,5 +554,11 @@
         private System.Windows.Forms.TextBox textBoxImport;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxExport;
+        private System.Windows.Forms.TabPage tabpageDatabase;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button buttonDbPush;
+        private System.Windows.Forms.Button buttonDbPull;
+        private System.Windows.Forms.Button buttonDbAttachedMode;
+        private System.Windows.Forms.GroupBox groupBox5;
     }
 }
