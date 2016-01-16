@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Millionaire
+﻿namespace Millionaire
 {
     public class Question
     {
@@ -9,7 +7,7 @@ namespace Millionaire
             get;
             private set;
         }
-        public List<string> Answers
+        public string[] Answers
         {
             get;
             private set;
@@ -20,11 +18,11 @@ namespace Millionaire
             string ar, string a1, string a2, string a3)
         {
             QuestionText = argName;
-            Answers = new List<string>();
-            Answers.Add(ar);
-            Answers.Add(a1);
-            Answers.Add(a2);
-            Answers.Add(a3);
+            Answers = new string[4];
+            Answers[0] = ar;
+            Answers[1] = a1;
+            Answers[2] = a2;
+            Answers[3] = a3;
         }
     }
 }

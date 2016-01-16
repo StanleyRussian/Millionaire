@@ -12,7 +12,13 @@ namespace Millionaire
         void ExportXml(string name);
         string OpenBrowseDialog();
 
+        void AttachedMode();
+        void DetachedMode();
+        void OfflineMode();
+
         List<Question> QuestionList
         { get; }
+
+        void Close();
     }
 }

@@ -66,7 +66,6 @@ namespace Millionaire
         private void ToolStripMenuItemSettings_Click(object sender, EventArgs e)
         {
             _control.CreateAdminForm();
-            buttonNew_Click(this, null);
         }
 
         private void buttonNew_Click(object sender, EventArgs e)

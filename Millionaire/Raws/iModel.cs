@@ -5,7 +5,7 @@ namespace Millionaire
     public interface iModel
     {
         List<Question> QuestionList
-        { get; }
+        { get; set; }
 
         int CurrentQuestion
         { get; }
