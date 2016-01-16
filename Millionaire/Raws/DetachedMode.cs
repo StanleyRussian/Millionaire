@@ -40,23 +40,12 @@ namespace Millionaire
 
         public void EditQuestion(Question q, int index)
         {
-            //DataRow Dr = Ds.Tables[0].NewRow();
-            //Dr["id"] = Ds.Tables[0].Rows.Count + 1;
-            //Dr["Question"] = q.QuestionText;
-            //Dr["RightAnswer"] = q.Answers[0];
-            //Dr["Answer1"] = q.Answers[1];
-            //Dr["Answer2"] = q.Answers[2];
-            //Dr["Answer3"] = q.Answers[3];
-            //Ds.Tables[0].Rows.RemoveAt(index);
-            //Ds.Tables[0].Rows.InsertAt(Dr, index);
+            Ds.Tables[0].Rows[index]["Question"] = q.QuestionText;
+            Ds.Tables[0].Rows[index]["RightAnswer"] = q.Answers[0];
+            Ds.Tables[0].Rows[index]["Answer1"] = q.Answers[1];
+            Ds.Tables[0].Rows[index]["Answer2"] = q.Answers[2];
+            Ds.Tables[0].Rows[index]["Answer3"] = q.Answers[3];
 
-            //DataRow[] ar = Ds.Tables[0].Select("id = " + index);
-            DataRow ar = Ds.Tables[0].Rows[index];
-            ar["Question"] = q.QuestionText;
-            ar["RightAnswer"] = q.Answers[0];
-            ar["Answer1"] = q.Answers[1];
-            ar["Answer2"] = q.Answers[2];
-            ar["Answer3"] = q.Answers[3];
             Adapter.Update(Ds);
             Ds.Clear();
             Adapter.Fill(Ds);
@@ -67,44 +56,10 @@ namespace Millionaire
             _model = ModelLink;
             Connection = new OleDbConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
             Ds = new DataSet();
-            // Creating DataTable and adding it to DataSet
-            //DataTable Dt = new DataTable("Questions");
-            //Dt.Columns.Add("ID", Type.GetType("System.Int32"));
-            //Dt.Columns.Add("Question", Type.GetType("System.String"));
-            //Dt.Columns.Add("RightAnswer", Type.GetType("System.String"));
-            //Dt.Columns.Add("Answer1", Type.GetType("System.String"));
-            //Dt.Columns.Add("Answer2", Type.GetType("System.String"));
-            //Dt.Columns.Add("Answer3", Type.GetType("System.String"));
-            //Ds.Tables.Add(Dt);
             Adapter = new OleDbDataAdapter("select * from Questions", Connection);
             Builder = new OleDbCommandBuilder(Adapter);
             Adapter.Fill(Ds);
-
-            // Adding questions from model to DataSet
-            //foreach (Question q in ModelLink.QuestionList)
-            //{
-            //    AddQuestion(q);
-            //}
         }
-
-        //public void Push()
-        //{
-        //    //Connection.Open();
-        //    OleDbDataAdapter Adapter = new OleDbDataAdapter("select * from Questions", Connection);
-        //    OleDbCommandBuilder Builder = new OleDbCommandBuilder(Adapter);
-        //    Adapter.Update(Ds);
-        //    Ds.Clear();
-        //    Adapter.Fill(Ds);
-        //    //Connection.Close();
-        //}
-
-        //public void Pull()
-        //{  
-        //    //Connection.Open();
-        //    OleDbDataAdapter Adapter = new OleDbDataAdapter("select * from Questions", Connection);
-        //    Adapter.Fill(Ds);
-        //    //Connection.Close();
-        //}
 
         // Method that repacks DataSet to List of Question objects.
         public List<Question> GetQuestionList()

@@ -12,11 +12,6 @@ namespace Millionaire
         void ExportXml(string name);
         string OpenBrowseDialog();
 
-        //void Attach();
-        //void Detach();
-        //void Pull();
-        //void Push();
-
         void AttachedMode();
         void DetachedMode();
         void OfflineMode();

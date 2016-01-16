@@ -67,6 +67,7 @@
             this.radioButtonDbDetached = new System.Windows.Forms.RadioButton();
             this.radioButtonDbAttached = new System.Windows.Forms.RadioButton();
             this.radioButtonDbOff = new System.Windows.Forms.RadioButton();
+            this.buttonDbHelp = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabpageAdd.SuspendLayout();
             this.tabpageDelete.SuspendLayout();
@@ -420,6 +421,7 @@
             // 
             // tabpageDatabase
             // 
+            this.tabpageDatabase.Controls.Add(this.buttonDbHelp);
             this.tabpageDatabase.Controls.Add(this.radioButtonDbDetached);
             this.tabpageDatabase.Controls.Add(this.radioButtonDbAttached);
             this.tabpageDatabase.Controls.Add(this.radioButtonDbOff);
@@ -467,6 +469,16 @@
             this.radioButtonDbOff.Text = "БД отключена";
             this.radioButtonDbOff.UseVisualStyleBackColor = true;
             this.radioButtonDbOff.CheckedChanged += new System.EventHandler(this.radioButtonDbOff_CheckedChanged);
+            // 
+            // buttonDbHelp
+            // 
+            this.buttonDbHelp.Location = new System.Drawing.Point(18, 113);
+            this.buttonDbHelp.Name = "buttonDbHelp";
+            this.buttonDbHelp.Size = new System.Drawing.Size(75, 23);
+            this.buttonDbHelp.TabIndex = 3;
+            this.buttonDbHelp.Text = "Справка";
+            this.buttonDbHelp.UseVisualStyleBackColor = true;
+            this.buttonDbHelp.Click += new System.EventHandler(this.buttonDbHelp_Click);
             // 
             // AdminForm
             // 
@@ -540,5 +552,6 @@
         private System.Windows.Forms.RadioButton radioButtonDbOff;
         private System.Windows.Forms.RadioButton radioButtonDbAttached;
         private System.Windows.Forms.RadioButton radioButtonDbDetached;
+        private System.Windows.Forms.Button buttonDbHelp;
     }
 }

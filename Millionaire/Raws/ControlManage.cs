@@ -28,10 +28,6 @@ namespace Millionaire
             }
         }
 
-        /* Add/Edit/Delete methods follow the same scheme:
-         * If AttachedMode is active, then class is instantiated, then we work with it
-         * If not, we work with DetachedMode since it being instantiated in constructor
-         */
         public void AddQuestion(string q, string ar, string a1, string a2, string a3)
         {
             Question NewQ = new Question(q, ar, a1, a2, a3);
@@ -61,7 +57,7 @@ namespace Millionaire
             if (AM != null)
                 AM.EditQuestion(EditedQ, index);
             else if (DM != null)
-                DM.DeleteQuestion(index);
+                DM.EditQuestion(EditedQ, index);
             else
                 _model.EditQuestion(EditedQ, index);
         }
@@ -89,31 +85,6 @@ namespace Millionaire
 
             return null;
         }
-
-        //public void Attach()
-        //{
-        //    AM = new AttachedMode(_model);
-        //}
-
-        //public void Detach()
-        //{
-        //    if (AM != null)
-        //    {
-        //        AM.Close();
-        //        AM = null;
-        //    }
-        //}
-
-        //public void Pull()
-        //{
-        //    DM = new DetachedMode(_model);
-        //}
-
-        //public void Push()
-        //{
-        //    if (DM != null)
-        //        DM.Push();
-        //}
 
         public void Close()
         {

@@ -23,10 +23,6 @@
             Answers[1] = a1;
             Answers[2] = a2;
             Answers[3] = a3;
-            //Answers.Add(ar);
-            //Answers.Add(a1);
-            //Answers.Add(a2);
-            //Answers.Add(a3);
         }
     }
 }
