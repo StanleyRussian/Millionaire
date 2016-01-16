@@ -12,7 +12,8 @@ namespace Millionaire
 
         public void AddQuestion(Question q)
         {
-            int index = _model.QuestionList.Count + 1;
+            List<Question> qlist = GetQuestionList();
+            int index = qlist.Count;
             OleDbCommand Command = new OleDbCommand(
                 string.Format("insert into Questions (ID, Question, RightAnswer, Answer1, Answer2, Answer3) values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')",
                 index, q.QuestionText, q.Answers[0], q.Answers[1], q.Answers[2], q.Answers[3]), Connection);
@@ -25,7 +26,8 @@ namespace Millionaire
                 string.Format("delete from Questions where id = {0}", index), Connection);
             Command.ExecuteNonQuery();
             int i = 0;
-            foreach (Question q in _model.QuestionList)
+            List<Question> qlist = GetQuestionList();
+            foreach (Question q in qlist)
             {
                 Command.CommandText = string.Format("update Questions set id = {0} where Question = '{1}'", i++, q.QuestionText);
                 Command.ExecuteNonQuery();

@@ -63,41 +63,41 @@ namespace Millionaire
             textBoxEditAnswer3.Text = _control.QuestionList[comboBoxEdit.SelectedIndex].Answers[3];
         }
 
-        private void buttonDbAttachedMode_Click(object sender, EventArgs e)
-        {
-            if (buttonDbAttachedMode.Text == "Включить")
-            {
-                _control.Attach();
-                buttonDbPush.Enabled = false;
-                buttonDbPull.Enabled = false;
-                buttonDbAttachedMode.Text = "Отключить";
-                buttonExportTXT.Enabled = false;
-                buttonExportXML.Enabled = false;
-                buttonImportBrowse.Enabled = false;
-                buttonImportGo.Enabled = false;
-            }
-            else
-            {
-                _control.Detach();
-                buttonDbPush.Enabled = true;
-                buttonDbPull.Enabled = true;
-                buttonDbAttachedMode.Text = "Включить";
-                buttonExportTXT.Enabled = true;
-                buttonExportXML.Enabled = true;
-                buttonImportBrowse.Enabled = true;
-                buttonImportGo.Enabled = true;
-            }
-        }
+        //private void buttonDbAttachedMode_Click(object sender, EventArgs e)
+        //{
+        //    if (buttonDbAttachedMode.Text == "Включить")
+        //    {
+        //        _control.Attach();
+        //        buttonDbPush.Enabled = false;
+        //        buttonDbPull.Enabled = false;
+        //        buttonDbAttachedMode.Text = "Отключить";
+        //        buttonExportTXT.Enabled = false;
+        //        buttonExportXML.Enabled = false;
+        //        buttonImportBrowse.Enabled = false;
+        //        buttonImportGo.Enabled = false;
+        //    }
+        //    else
+        //    {
+        //        _control.Detach();
+        //        buttonDbPush.Enabled = true;
+        //        buttonDbPull.Enabled = true;
+        //        buttonDbAttachedMode.Text = "Включить";
+        //        buttonExportTXT.Enabled = true;
+        //        buttonExportXML.Enabled = true;
+        //        buttonImportBrowse.Enabled = true;
+        //        buttonImportGo.Enabled = true;
+        //    }
+        //}
 
-        private void buttonDbPush_Click(object sender, EventArgs e)
-        {
-            _control.Push();
-        }
+        //private void buttonDbPush_Click(object sender, EventArgs e)
+        //{
+        //    _control.Push();
+        //}
 
-        private void buttonDbPull_Click(object sender, EventArgs e)
-        {
-            _control.Pull();
-        }
+        //private void buttonDbPull_Click(object sender, EventArgs e)
+        //{
+        //    _control.Pull();
+        //}
 
         private void AdminForm_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -120,6 +120,21 @@ namespace Millionaire
             {
                 comboBoxEdit.Items.Add(q.QuestionText);
             }
+        }
+
+        private void radioButtonDbOff_CheckedChanged(object sender, EventArgs e)
+        {
+            _control.OfflineMode();
+        }
+
+        private void radioButtonDbAttached_CheckedChanged(object sender, EventArgs e)
+        {
+            _control.AttachedMode();
+        }
+
+        private void radioButtonDbDetached_CheckedChanged(object sender, EventArgs e)
+        {
+            _control.DetachedMode();
         }
     }
 }

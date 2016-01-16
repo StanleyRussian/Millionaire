@@ -64,11 +64,9 @@
             this.buttonImportBrowse = new System.Windows.Forms.Button();
             this.textBoxImport = new System.Windows.Forms.TextBox();
             this.tabpageDatabase = new System.Windows.Forms.TabPage();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.buttonDbPush = new System.Windows.Forms.Button();
-            this.buttonDbPull = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.buttonDbAttachedMode = new System.Windows.Forms.Button();
+            this.radioButtonDbDetached = new System.Windows.Forms.RadioButton();
+            this.radioButtonDbAttached = new System.Windows.Forms.RadioButton();
+            this.radioButtonDbOff = new System.Windows.Forms.RadioButton();
             this.tabControl.SuspendLayout();
             this.tabpageAdd.SuspendLayout();
             this.tabpageDelete.SuspendLayout();
@@ -77,8 +75,6 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabpageDatabase.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -424,8 +420,9 @@
             // 
             // tabpageDatabase
             // 
-            this.tabpageDatabase.Controls.Add(this.groupBox5);
-            this.tabpageDatabase.Controls.Add(this.groupBox4);
+            this.tabpageDatabase.Controls.Add(this.radioButtonDbDetached);
+            this.tabpageDatabase.Controls.Add(this.radioButtonDbAttached);
+            this.tabpageDatabase.Controls.Add(this.radioButtonDbOff);
             this.tabpageDatabase.Location = new System.Drawing.Point(4, 40);
             this.tabpageDatabase.Name = "tabpageDatabase";
             this.tabpageDatabase.Padding = new System.Windows.Forms.Padding(3);
@@ -434,56 +431,42 @@
             this.tabpageDatabase.Text = "Работа с БД";
             this.tabpageDatabase.UseVisualStyleBackColor = true;
             // 
-            // groupBox5
+            // radioButtonDbDetached
             // 
-            this.groupBox5.Controls.Add(this.buttonDbPush);
-            this.groupBox5.Controls.Add(this.buttonDbPull);
-            this.groupBox5.Location = new System.Drawing.Point(6, 66);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(361, 54);
-            this.groupBox5.TabIndex = 4;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Отсоединенный режим";
+            this.radioButtonDbDetached.AutoSize = true;
+            this.radioButtonDbDetached.Location = new System.Drawing.Point(18, 63);
+            this.radioButtonDbDetached.Name = "radioButtonDbDetached";
+            this.radioButtonDbDetached.Size = new System.Drawing.Size(143, 17);
+            this.radioButtonDbDetached.TabIndex = 2;
+            this.radioButtonDbDetached.TabStop = true;
+            this.radioButtonDbDetached.Text = "Отсоединенный режим";
+            this.radioButtonDbDetached.UseVisualStyleBackColor = true;
+            this.radioButtonDbDetached.CheckedChanged += new System.EventHandler(this.radioButtonDbDetached_CheckedChanged);
             // 
-            // buttonDbPush
+            // radioButtonDbAttached
             // 
-            this.buttonDbPush.Location = new System.Drawing.Point(6, 19);
-            this.buttonDbPush.Name = "buttonDbPush";
-            this.buttonDbPush.Size = new System.Drawing.Size(168, 23);
-            this.buttonDbPush.TabIndex = 4;
-            this.buttonDbPush.Text = "Обновить базу (Push)";
-            this.buttonDbPush.UseVisualStyleBackColor = true;
-            this.buttonDbPush.Click += new System.EventHandler(this.buttonDbPush_Click);
+            this.radioButtonDbAttached.AutoSize = true;
+            this.radioButtonDbAttached.Location = new System.Drawing.Point(18, 40);
+            this.radioButtonDbAttached.Name = "radioButtonDbAttached";
+            this.radioButtonDbAttached.Size = new System.Drawing.Size(150, 17);
+            this.radioButtonDbAttached.TabIndex = 1;
+            this.radioButtonDbAttached.TabStop = true;
+            this.radioButtonDbAttached.Text = "Присоединенный режим";
+            this.radioButtonDbAttached.UseVisualStyleBackColor = true;
+            this.radioButtonDbAttached.CheckedChanged += new System.EventHandler(this.radioButtonDbAttached_CheckedChanged);
             // 
-            // buttonDbPull
+            // radioButtonDbOff
             // 
-            this.buttonDbPull.Location = new System.Drawing.Point(180, 19);
-            this.buttonDbPull.Name = "buttonDbPull";
-            this.buttonDbPull.Size = new System.Drawing.Size(174, 23);
-            this.buttonDbPull.TabIndex = 3;
-            this.buttonDbPull.Text = "Обновить приложение (Pull)";
-            this.buttonDbPull.UseVisualStyleBackColor = true;
-            this.buttonDbPull.Click += new System.EventHandler(this.buttonDbPull_Click);
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.buttonDbAttachedMode);
-            this.groupBox4.Location = new System.Drawing.Point(6, 6);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(361, 54);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Присоединенный режим";
-            // 
-            // buttonDbAttachedMode
-            // 
-            this.buttonDbAttachedMode.Location = new System.Drawing.Point(6, 19);
-            this.buttonDbAttachedMode.Name = "buttonDbAttachedMode";
-            this.buttonDbAttachedMode.Size = new System.Drawing.Size(349, 23);
-            this.buttonDbAttachedMode.TabIndex = 2;
-            this.buttonDbAttachedMode.Text = "Включить";
-            this.buttonDbAttachedMode.UseVisualStyleBackColor = true;
-            this.buttonDbAttachedMode.Click += new System.EventHandler(this.buttonDbAttachedMode_Click);
+            this.radioButtonDbOff.AutoSize = true;
+            this.radioButtonDbOff.Checked = true;
+            this.radioButtonDbOff.Location = new System.Drawing.Point(18, 17);
+            this.radioButtonDbOff.Name = "radioButtonDbOff";
+            this.radioButtonDbOff.Size = new System.Drawing.Size(98, 17);
+            this.radioButtonDbOff.TabIndex = 0;
+            this.radioButtonDbOff.TabStop = true;
+            this.radioButtonDbOff.Text = "БД отключена";
+            this.radioButtonDbOff.UseVisualStyleBackColor = true;
+            this.radioButtonDbOff.CheckedChanged += new System.EventHandler(this.radioButtonDbOff_CheckedChanged);
             // 
             // AdminForm
             // 
@@ -511,8 +494,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabpageDatabase.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
+            this.tabpageDatabase.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -555,10 +537,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxExport;
         private System.Windows.Forms.TabPage tabpageDatabase;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button buttonDbPush;
-        private System.Windows.Forms.Button buttonDbPull;
-        private System.Windows.Forms.Button buttonDbAttachedMode;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.RadioButton radioButtonDbOff;
+        private System.Windows.Forms.RadioButton radioButtonDbAttached;
+        private System.Windows.Forms.RadioButton radioButtonDbDetached;
     }
 }

@@ -11,6 +11,8 @@ namespace Millionaire
     {
         OleDbConnection Connection;
         DataSet Ds;
+        OleDbDataAdapter Adapter;
+        OleDbCommandBuilder Builder;
         iModel _model;
 
         public void AddQuestion(Question q)
@@ -23,11 +25,17 @@ namespace Millionaire
             Dr["Answer2"] = q.Answers[2];
             Dr["Answer3"] = q.Answers[3];
             Ds.Tables[0].Rows.Add(Dr);
+            Adapter.Update(Ds);
+            Ds.Clear();
+            Adapter.Fill(Ds);
         }
 
         public void DeleteQuestion(int index)
         {
             Ds.Tables[0].Rows[index].Delete();
+            Adapter.Update(Ds);
+            Ds.Clear();
+            Adapter.Fill(Ds);
         }
 
         public void EditQuestion(Question q, int index)
@@ -42,12 +50,16 @@ namespace Millionaire
             //Ds.Tables[0].Rows.RemoveAt(index);
             //Ds.Tables[0].Rows.InsertAt(Dr, index);
 
-            DataRow[] ar = Ds.Tables[0].Select("id = " + index);
-            ar[0]["Question"] = q.QuestionText;
-            ar[0]["RightAnswer"] = q.Answers[0];
-            ar[0]["Answer1"] = q.Answers[1];
-            ar[0]["Answer2"] = q.Answers[2];
-            ar[0]["Answer3"] = q.Answers[3];
+            //DataRow[] ar = Ds.Tables[0].Select("id = " + index);
+            DataRow ar = Ds.Tables[0].Rows[index];
+            ar["Question"] = q.QuestionText;
+            ar["RightAnswer"] = q.Answers[0];
+            ar["Answer1"] = q.Answers[1];
+            ar["Answer2"] = q.Answers[2];
+            ar["Answer3"] = q.Answers[3];
+            Adapter.Update(Ds);
+            Ds.Clear();
+            Adapter.Fill(Ds);
         }
 
         public DetachedMode(iModel ModelLink)
@@ -64,7 +76,8 @@ namespace Millionaire
             //Dt.Columns.Add("Answer2", Type.GetType("System.String"));
             //Dt.Columns.Add("Answer3", Type.GetType("System.String"));
             //Ds.Tables.Add(Dt);
-            OleDbDataAdapter Adapter = new OleDbDataAdapter("select * from Questions", Connection);
+            Adapter = new OleDbDataAdapter("select * from Questions", Connection);
+            Builder = new OleDbCommandBuilder(Adapter);
             Adapter.Fill(Ds);
 
             // Adding questions from model to DataSet
@@ -74,16 +87,16 @@ namespace Millionaire
             //}
         }
 
-        public void Push()
-        {
-            //Connection.Open();
-            OleDbDataAdapter Adapter = new OleDbDataAdapter("select * from Questions", Connection);
-            OleDbCommandBuilder Builder = new OleDbCommandBuilder(Adapter);
-            Adapter.Update(Ds);
-            Ds.Clear();
-            Adapter.Fill(Ds);
-            //Connection.Close();
-        }
+        //public void Push()
+        //{
+        //    //Connection.Open();
+        //    OleDbDataAdapter Adapter = new OleDbDataAdapter("select * from Questions", Connection);
+        //    OleDbCommandBuilder Builder = new OleDbCommandBuilder(Adapter);
+        //    Adapter.Update(Ds);
+        //    Ds.Clear();
+        //    Adapter.Fill(Ds);
+        //    //Connection.Close();
+        //}
 
         //public void Pull()
         //{  
